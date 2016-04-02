@@ -53,7 +53,7 @@
   "totalHP": {
     // true - show total HP of teams
     // true - показывать общее ХП команд
-    "enabled": true,
+    "enabled": false,
     // Color of HP per ratio ally/enemy team, hex rgb
     // Цвет ХП в зависимости от отношения хп союзной и вражеской команд, hex rgb
     "colors": {
