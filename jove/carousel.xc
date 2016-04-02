@@ -16,8 +16,8 @@
     // Spacing between carousel cells.
     // Отступ между ячейками карусели.
     "padding": {
-        "horizontal": 0,   // по горизонтали
-        "vertical": 0       // по вертикали
+        "horizontal": 3,   // по горизонтали
+        "vertical": 3       // по вертикали
     },
     // Background transparency (default - 60)
     // Прозрачность подложки (по умолчанию - 60)

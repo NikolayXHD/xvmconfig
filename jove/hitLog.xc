@@ -61,7 +61,7 @@
     "blowupMarker": "&#x78;",
     // Default header format (before first hit). Only localization macros are allowed, see macros.txt.
     // Формат заголовка по умолчанию (до первого попадания). Допускаются только макросы перевода, см. macros.txt.
-    "defaultHeader":  "<font color='#FFFFFF'>{{l10n:Hits}}:</font> 0",
+    "defaultHeader":  "<font color='#FFFFFF'>Урон:</font> 0",
     // Hits header format, including last hit (macros allowed, see macros.txt).
     // Формат заголовка (допускаются макроподстановки, см. macros.txt).
     "formatHeader":  "Урон #{{n}}: <font color='{{c:dmg-kind}}'><b>{{dmg}}</b></font> <font face='xvm' size='21'>{{dead=&#x77;?&#x29;|{{dead=&#x78;?&#x28;}}}}</font> | <b><font color='#00FF00'>{{dmg-total}}</font></b>",
