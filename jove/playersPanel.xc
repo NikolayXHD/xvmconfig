@@ -65,7 +65,7 @@
     // Режим ушей "none" - пустые уши.
     "none": {
       // false - disable (отключить)
-      "enabled": true,
+      "enabled": false,
       // Layout ("vertical" or "horizontal")
       // Размещение ("vertical" - вертикально, или "horizontal" - горизонтально)
       "layout": "vertical",
@@ -150,7 +150,7 @@
     // Режим ушей "short" - короткие уши (фраги и иконка танка).
     "short": {
       // false - disable (отключить)
-      "enabled": true,
+      "enabled": false,
       // Minimum width of the column, 0-250. Default is 0.
       // Минимальная ширина поля, 0-250. По умолчанию: 0.
       "width": 0,
@@ -170,7 +170,7 @@
       // Набор форматов для левой панели (поддерживается расширенный формат, см. выше)
       "extraFieldsLeft": [
         
-],
+      ],
       // Set of formats for right panel (extended format supported, see above)
       // Набор форматов для правой панели (поддерживается расширенный формат, см. выше)
       "extraFieldsRight": [
@@ -193,10 +193,10 @@
       "vehicleLevelAlpha": 100,
       // Display format for the left panel (macros allowed, see macros.txt).
       // Формат отображения для левой панели (допускаются макроподстановки, см. macros.txt).
-      "formatLeft": "        <font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{name%.15s~..}}</font> <font alpha='#A0'>{{clan}}</font>",
+      "formatLeft": "        <font alpha='{{alive?#FF|#80}}'>{{name%.15s~..}}</font> <font alpha='#A0'>{{clan}}</font>",
       // Display format for the right panel (macros allowed, see macros.txt).
       // Формат отображения для правой панели (допускаются макроподстановки, см. macros.txt).
-      "formatRight": "<font alpha='#A0'>{{clan}}</font> <font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{name%.15s~..}}</font>        <font size='0'>.</font>",
+      "formatRight": "<font alpha='#A0'>{{clan}}</font> <font alpha='{{alive?#FF|#80}}'>{{name%.15s~..}}</font>        <font size='0'>.</font>",
       // Display format for frags (macros allowed, see macros.txt).
       // Формат отображения фрагов (допускаются макроподстановки, см. macros.txt).
       "fragsFormatLeft": "{{frags}}",
@@ -207,18 +207,18 @@
       // Набор форматов для левой панели (поддерживается расширенный формат, см. выше)
       "extraFieldsLeft": [
         
-],
+      ],
       // Set of formats for right panel (extended format supported, see above)
       // Набор форматов для правой панели (поддерживается расширенный формат, см. выше)
       "extraFieldsRight": [
         ${"enemySpottedMarker"}
-]
+      ]
     },
     // Options for the "medium2" panels - the second of the medium panels.
     // Режим ушей "medium2" - вторые средние уши в игре.
     "medium2": {
       // false - disable (отключить)
-      "enabled": true,
+      "enabled": false,
       // Maximum width of the vehicle name column, 0-250. Default is 65.
       // Максимальная ширина поля названия танка, 0-250. По умолчанию: 65.
       "width": 65,
@@ -255,7 +255,7 @@
     // Режим ушей "large" - широкие уши в игре.
     "large": {
       // false - disable (отключить)
-      "enabled": true,
+      "enabled": false,
       // Minimum width of the player's name column, 0-250. Default is 170.
       // Минимальная ширина поля имени игрока, 0-250. По умолчанию: 170.
       "width": 200,
@@ -267,12 +267,12 @@
       "vehicleLevelAlpha": 100,
       // Display format for player nickname (macros allowed, see macros.txt).
       // Формат отображения имени игрока (допускаются макроподстановки, см. macros.txt).
-      "nickFormatLeft": "<font color='{{c:winrate}}' alpha='{{alive?#FF|#80}}'>{{winrate%2d|    }}</font> <img src='xvm://res/icons/xvm/xvm-user-{{xvm-user}}.png'>{{name%.20s~..}} <font alpha='#A0'>{{clan}}</font>",
-      "nickFormatRight": "<font alpha='#A0'>{{clan}}</font> {{name%.20s~..}}<img src='xvm://res/icons/xvm/xvm-user-{{xvm-user}}.png'> <font color='{{c:winrate}}' alpha='{{alive?#FF|#80}}'>{{winrate%2d|    }}</font>",
+      "nickFormatLeft": "<font alpha='{{alive?#FF|#80}}'>{{winrate%2d|    }}</font> <img src='xvm://res/icons/xvm/xvm-user-{{xvm-user}}.png'>{{name%.20s~..}} <font alpha='#A0'>{{clan}}</font>",
+      "nickFormatRight": "<font alpha='#A0'>{{clan}}</font> {{name%.20s~..}}<img src='xvm://res/icons/xvm/xvm-user-{{xvm-user}}.png'> <font alpha='{{alive?#FF|#80}}'>{{winrate%2d|    }}</font>",
       // Display format for vehicle name (macros allowed, see macros.txt).
       // Формат отображения названия танка (допускаются макроподстановки, см. macros.txt).
-      "vehicleFormatLeft": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
-      "vehicleFormatRight": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
+      "vehicleFormatLeft": "<font alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
+      "vehicleFormatRight": "<font alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
       // Display format for frags (macros allowed, see macros.txt).
       // Формат отображения фрагов (допускаются макроподстановки, см. macros.txt).
       "fragsFormatLeft": "{{frags}}",
