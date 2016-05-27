@@ -11,7 +11,7 @@
      // "enabled": true - включен; "color" - цвет.
      // Own vehicle direction definition.
      // Шаблон направления корпуса своей техники.
-    "vehicle": { "enabled": false, "inmeters": true, "color": "0x60FF00" },
+    "vehicle": { "enabled": true, "inmeters": true, "color": "0x60FF00" },
      // Camera direction definition.
      // Шаблон направления камеры от своей техники.
     "camera": { "enabled": true, "inmeters": true, "color": "0xFFCC66" },
@@ -65,6 +65,11 @@
          { "$ref": { "path": "def.camera" }, "from": 1220, "to": 1280, "thickness": 0.75, "alpha": 35 },
          { "$ref": { "path": "def.camera" }, "from": 1320, "to": 1380, "thickness": 0.75, "alpha": 35 },
          { "$ref": { "path": "def.camera" }, "from": 1420, "to": 1480, "thickness": 0.75, "alpha": 35 },
+         { "$ref": { "path": "def.camera" }, "from": 1520, "to": 1580, "thickness": 0.75, "alpha": 35 },
+         { "$ref": { "path": "def.camera" }, "from": 1620, "to": 1680, "thickness": 0.75, "alpha": 35 },
+         { "$ref": { "path": "def.camera" }, "from": 1720, "to": 1780, "thickness": 0.75, "alpha": 35 },
+         { "$ref": { "path": "def.camera" }, "from": 1820, "to": 1880, "thickness": 0.75, "alpha": 35 },
+         { "$ref": { "path": "def.camera" }, "from": 1920, "to": 2000, "thickness": 0.75, "alpha": 35 },
            //Dots
            //Точки
          { "$ref": { "path": "def.dot" }, "from": 99,   "to": 100,  "thickness": 2.2, "alpha": 70 },
@@ -80,7 +85,12 @@
          { "$ref": { "path": "def.dot" }, "from": 1099, "to": 1100, "thickness": 1.5, "alpha": 55 },
          { "$ref": { "path": "def.dot" }, "from": 1199, "to": 1200, "thickness": 1.5, "alpha": 55 },
          { "$ref": { "path": "def.dot" }, "from": 1299, "to": 1300, "thickness": 1.5, "alpha": 55 },
-         { "$ref": { "path": "def.dot" }, "from": 1399, "to": 1400, "thickness": 1.5, "alpha": 55 }
+         { "$ref": { "path": "def.dot" }, "from": 1399, "to": 1400, "thickness": 1.5, "alpha": 55 },
+         { "$ref": { "path": "def.dot" }, "from": 1499, "to": 1500, "thickness": 1.5, "alpha": 55 },
+         { "$ref": { "path": "def.dot" }, "from": 1599, "to": 1600, "thickness": 1.5, "alpha": 55 },
+         { "$ref": { "path": "def.dot" }, "from": 1699, "to": 1700, "thickness": 1.5, "alpha": 55 },
+         { "$ref": { "path": "def.dot" }, "from": 1799, "to": 1800, "thickness": 1.5, "alpha": 55 },
+         { "$ref": { "path": "def.dot" }, "from": 1899, "to": 1900, "thickness": 1.5, "alpha": 55 }
        ],
        // Gun traverse angles may differ depending on vehicle angle relative to ground. See pics at http://goo.gl/ZqlPa
        // Углы горизонтальной наводки могут меняться в зависимости от углов постановки машины на склонах местности. Подробнее по ссылке: http://goo.gl/ZqlPa

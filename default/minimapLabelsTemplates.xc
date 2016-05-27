@@ -152,13 +152,6 @@
       "shadow": { "$ref": { "path":"def.defaultItem.shadow" }, "strength": 3 },
       "x": 2,
       "y": -9
-    },
-    // Кружок здоровья
-    "vehicleHP": {
-      "$ref": { "path":"def.vtypeSpotted" },
-      "format": "<font face='dynamic' size='15' color='{{c:system}}'>{{hp-ratio%.436a|&#xE6;}}</font>",
-      "x": 0,
-      "y": 0.5
     }
   }
 }

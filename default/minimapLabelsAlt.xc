@@ -32,7 +32,6 @@
       ${ "minimapLabelsTemplates.xc":"def.nickLost" },
       ${ "minimapLabelsTemplates.xc":"def.vtypeDead" },
       ${ "minimapLabelsTemplates.xc":"def.vehicleDead" },
-      ${ "minimapLabelsTemplates.xc":"def.vehicleHP" },
       ${ "minimapLabelsTemplates.xc":"def.nickDead" }
     ]
   }

@@ -1,6 +1,6 @@
 ﻿/**
- * Options for alive with Alt markers.
- * Настройки маркеров для живых с Alt.
+ * Options for alive without Alt markers.
+ * Настройки маркеров для живых без Alt.
  */
 {
   // Definitions
@@ -51,13 +51,39 @@
       // Текст при взрыве боеукладки (см. описание макросов в macros.txt).
       "blowupMessage": "{{l10n:blownUp}}\n{{dmg}}"
     },
+    // Text field with the name of the tank.
+    // Текстовое поле с названием танка.
+    "tankName": {
+      "name": "Tank name",
+      "visible": true,
+      "x": 0,
+      "y": -36,
+      "alpha": 100,
+      "color": null,
+      "font": {
+        "name": "$FieldFont",
+        "size": 13,
+        "align": "center",
+        "bold": false,
+        "italic": false
+      },
+      "shadow": {
+        "alpha": 100,
+        "color": "0x000000",
+        "angle": 45,
+        "distance": 0,
+        "size": 6,
+        "strength": 200
+      },
+      "format": "{{vehicle}}{{turret}}"
+    },
     // Text field with the name of the player.
     // Текстовое поле с именем игрока.
     "playerName": {
       "name": "Player name",          // название текстового поля, ни на что не влияет
       "visible": true,                // false - не отображать
       "x": 0,                         // положение по оси X
-      "y": -36,                       // положение по оси Y
+      "y": -51,                       // положение по оси Y
       "alpha": 100,                   // прозрачность (допускается использование динамической прозрачности, см. macros.txt)
       "color": null,                  // цвет (допускается использование динамического цвета, см. macros.txt)
       // Параметры шрифта.
@@ -77,12 +103,12 @@
         "size": 6,                    //   размер
         "strength": 200               //   интенсивность
       },
-      "format": "{{nick}}"            // формат текста. См. описание макросов в macros.txt
+      "format": "<font size='{{battletype?13|{{squad?13|0}}}}'>{{name}}</font>"  // формат текста. См. описание макросов в macros.txt
     },
-    // Text field with the percentage of remaining health.
-    // Текстовое поле с процентом оставшегося здоровья.
-    "hpPercent": {
-      "name": "Percent of HP",
+    // Text field with the remaining / maximum health.
+    // Текстовое поле с оставшимся / максимальным здоровьем.
+    "tankHp": {
+      "name": "Tank HP",
       "visible": true,
       "x": 0,
       "y": -20,
@@ -103,33 +129,33 @@
         "size": 4,
         "strength": 100
       },
-      "format": "{{hp-ratio}}%"
+      "format": "{{hp}} / {{hp-max}}"
     },
-    // Text field with win ratio.
-    // Текстовое поле с процентом побед.
-    "winRate": {
-      "name": "Win Rate",
-      "visible": true,
-      "x": 0,
-      "y": -46,
-      "alpha": 100,
-      "color": "{{c:winrate}}",
-      "font": {
-        "name": "$FieldFont",
-        "size": 11,
-        "align": "center",
-        "bold": true,
-        "italic": false
+    // Text field with the XMQP event marker.
+    // Текстовое поле с маркером события XMQP.
+    "xmqpEvent": {
+      "name": "xmqp event",           //  название текстового поля, ни на что не влияет
+      "visible": true,                //  false - не отображать
+      "x": 0,                         //  положение по оси X
+      "y": "{{battletype?-71|{{squad?-71|-56}}}}",  //  положение по оси Y
+      "alpha": 100,                   //  прозрачность (допускается использование динамической прозрачности, см. macros.txt)
+      "color": "0xFFBB00",            //  цвет (допускается использование динамического цвета, см. macros.txt)
+      "font": {                       //  параметры шрифта
+        "name": "xvm",                //  название
+        "size": 23,                   //  размер
+        "align": "center",            //  выравнивание текста (left, center, right)
+        "bold": false,                //  обычный (false) или жирный (true)
+        "italic": false               //  обычный (false) или курсив (true)
       },
-      "shadow": {
-        "alpha": 100,
-        "color": "0x000000",
-        "angle": 45,
-        "distance": 0,
-        "size": 6,
-        "strength": 200
+      "shadow": {                     //  параметры тени
+        "alpha": 100,                 //  прозрачность
+        "color": "0x000000",          //  цвет
+        "angle": 45,                  //  угол смещения
+        "distance": 0,                //  дистанция смещение
+        "size": 4,                    //  размер
+        "strength": 100               //  интенсивность
       },
-      "format": "{{winrate%2d~%}}"
+      "format": "<font color='{{x-spotted?#FFBB00|#FFFFFF}}' alpha='{{x-spotted?#FF|#80}}'>{{x-spotted?&#x70;|{{x-sense-on?&#x70;}}}}</font> {{x-overturned?&#x112;}}"  //  формат текста. См. описание макросов в macros.txt
     }
   },
   // Настройки для союзников.
@@ -193,8 +219,8 @@
       },
       // Параметры анимации отнимаемого здоровья.
       "damage": {
-        "alpha": 80,                    //     прозрачность
-        "color": null,                  //     цвет
+        "alpha": 100,                   //     прозрачность
+        "color": "{{c:dmg}}",           //     цвет
         "fade": 1                       //     время затухания в секундах
       }
     },
@@ -259,9 +285,10 @@
     // Block of text fields.
     // Блок текстовых полей.
     "textFields": [
+      ${ "def.tankName" },
       ${ "def.playerName" },
-      ${ "def.hpPercent" },
-      ${ "def.winRate" }
+      ${ "def.tankHp" },
+      ${ "def.xmqpEvent" }
     ]
   },
   // Настройки для противников.
@@ -306,8 +333,8 @@
         "alpha": 30
       },
       "damage": {
-        "alpha": 80,
-        "color": null,
+        "alpha": 100,
+        "color": "{{c:dmg}}",
         "fade": 1
       }
     },
@@ -361,9 +388,8 @@
     // Block of text fields.
     // Блок текстовых полей.
     "textFields": [
-      ${ "def.playerName" },
-      ${ "def.hpPercent" },
-      ${ "def.winRate" }
+      ${ "def.tankName" },
+      ${ "def.tankHp" }
     ]
   }
 }

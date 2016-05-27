@@ -4,9 +4,6 @@
  */
 {
   "login": {
-    // Skip intro movie
-    // Пропустить вступительное видео
-    "skipIntro": false,
     // Save last server
     // Сохранять последний сервер
     "saveLastServer": false,
@@ -197,6 +194,5 @@
         "strength": 2
       }
     }
-
   }
 }

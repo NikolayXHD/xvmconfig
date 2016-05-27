@@ -6,7 +6,7 @@
   "battle": {
     // false - Disable tank icon mirroring (good for alternative icons).
     // false - отключить зеркалирования иконок танков (полезно для альтернативных иконок).
-    "mirroredVehicleIcons": false,
+    "mirroredVehicleIcons": true,
     // false - Disable pop-up panel at the bottom after death.
     // false - отключить всплывающую внизу панель после смерти.
     "showPostmortemTips": true,
@@ -18,13 +18,13 @@
     "allowSpottedStatus": true,
     // true - enable {{hp*}} macros ability in players panels and minimap. WARNING: performance expensive
     // true - включить возможность {{hp*}} макросов в ушах и на миникарте. ВНИМАНИЕ: может понизить производительность
-    "allowHpInPanelsAndMinimap": true,
+    "allowHpInPanelsAndMinimap": false,
     // true - enable {{marksOnGun}} macro in players panels and minimap. WARNING: performance expensive
     // true - включить макрос {{marksOnGun}} в ушах и на миникарте. ВНИМАНИЕ: может понизить производительность
     "allowMarksOnGunInPanelsAndMinimap": false,
     // true - enable custom labels on battle interface window
     // true - показывать пользовательские текстовые поля в окне боевого интерфейса
-    "allowLabelsOnBattleInterface": false,
+    "allowLabelsOnBattleInterface": true,
     // Format of clock on the Debug Panel (near FPS).
     // Формат часов на экране панели отладки (возле FPS).
     "clockFormat": "H:N", // TODO: "H:i"
@@ -42,7 +42,7 @@
     "camera": ${"camera.xc":"camera"},
     // Switching between players on the minimap after death
     // Переключение между игроками по миникарте после смерти
-    "minimapDeadSwitch": false
+    "minimapDeadSwitch": true
   },
   // Frag counter panel at top side of battle windows interface.
   // Панель счёта в бою.

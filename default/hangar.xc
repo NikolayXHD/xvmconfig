@@ -15,7 +15,7 @@
     "enableFreeXpLocker": false,
     // true - Use credits instead of gold as default currency for ammo and equipment
     // true - Использовать кредиты, а не золото как валюту по умолчанию для снарядов и снаряжения
-    "defaultBoughtForCredits": true,
+    "defaultBoughtForCredits": false,
     // true - Hide price button in tech tree
     // true - Прятать кнопку с ценой в дереве исследований
     "hidePricesInTechTree": false,
@@ -54,7 +54,7 @@
     "pingServers": {
       // true - Enable display of ping to the servers
       // true - показывать пинг до серверов
-      "enabled": true,
+      "enabled": false,
       // Update interval, in ms
       // Интервал обновления, в мс
       "updateInterval": 10000,
