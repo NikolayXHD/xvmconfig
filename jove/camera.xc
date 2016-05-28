@@ -6,13 +6,13 @@
   "camera": {
     // false - disable camera settings.
     // false - отключить настройки камеры.
-    "enabled": false,
+    "enabled": true,
     // Arcade mode
     // Аркадный режим
     "arcade": {
       // Camera distance range: [min, max], default - [2, 25]
       // Отдаление камеры: [мин, макс], по умолчанию - [2, 25]
-      "distRange": [2, 25],
+      "distRange": [2, 50],
       // Start distance (null for default behavior - saved state from the last battle)
       // Начальная дистанция (null для поведения по умолчанию - сохраненная позиция из последнего боя)
       "startDist": null,
@@ -28,7 +28,7 @@
     "postmortem": {
       // Camera distance range: [min, max], default - [2, 25]
       // Отдаление камеры: [мин, макс], по умолчанию - [2, 25]
-      "distRange": [2, 25],
+      "distRange": [2, 50],
       // Start distance (null for default behavior - maximum distance)
       // Начальная дистанция (null для поведения по умолчанию - максимальная дистанция)
       "startDist": null,
@@ -44,7 +44,7 @@
     "strategic": {
       // Camera distance range: [min, max], default - [40, 100]
       // Отдаление камеры: [мин, макс], по умолчанию - [40, 100]
-      "distRange": [40, 100],
+      "distRange": [20, 100],
       // false - disable dynamic camera
       // false - выключить динамическую камеру
       "dynamicCameraEnabled": true
