@@ -96,10 +96,10 @@
     // Дополнительные поля ячеек (см. playersPanel.xc).
     "extraFields": [
       { "x": 2,  "y": 14, "format": "<img src='img://gui/maps/icons/library/BattleResultIcon-1.png' width='14' height='14'>" },
-      { "x": 22, "y": 13, "format": "<font face='$FieldFont' size='12' color='{{v.premium?#FFA759|#FFFFFF}}'>{{v.battletiermin}}-{{v.battletiermax}}</font>", "shadow": { "distance": 0, "angle": 90, "color": "0x550000", "alpha": 0.7, "blur": 10, "strength": 5 } },
+      { "x": 22, "y": 13, "format": "<font face='$FieldFont' size='12' color='{{v.premium?#FFA759|#FFFFFF}}'>{{v.battletiermin}}-{{v.battletiermax}}</font>", "shadow": { "distance": 0, "angle": 90, "color": "0x550000", "alpha": 70, "blur": 10, "strength": 5 } },
       { "x": 103, "y": 10, "format": "<img src='img://gui/maps/icons/library/proficiency/class_icons_{{v.mastery}}.png' width='23' height='23'>" },
-      { "x": 152, "y": 13, "format": "<font face='$FieldFont' size='12' color='{{v.c_winrate}}'>{{v.winrate%d~%| }}</font>", "align":"right", "shadow": { "distance": 0, "angle": 90, "color": "0x000000", "alpha": 0.7, "blur": 2, "strength":3 } },
-      { "x": 152, "y": 27, "format": "<font face='$FieldFont' size='12'><font color='{{v.c_wn8effd}}'>{{v.tdb%d~| }}</font>{{v.xte? / |}}<font color='{{v.c_xte}}'>{{v.xte%s~|}}</font></font>", "align":"right", "shadow": { "distance": 0, "angle": 90, "color": "0x000000", "alpha": 0.7, "blur": 2, "strength":3 } }
+      { "x": 152, "y": 13, "format": "<font face='$FieldFont' size='12' color='{{v.c_winrate}}'>{{v.winrate%d~%| }}</font>", "align":"right", "shadow": { "distance": 0, "angle": 90, "color": "0x000000", "alpha": 70, "blur": 2, "strength":3 } },
+      { "x": 152, "y": 27, "format": "<font face='$FieldFont' size='12'><font color='{{v.c_wn8effd}}'>{{v.tdb%d~| }}</font>{{v.xte? / |}}<font color='{{v.c_xte}}'>{{v.xte%s~|}}</font></font>", "align":"right", "shadow": { "distance": 0, "angle": 90, "color": "0x000000", "alpha": 70, "blur": 2, "strength":3 } }
     ],
     // Order of nations.
     // Порядок наций.

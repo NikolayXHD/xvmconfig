@@ -131,6 +131,84 @@
       },
       "format": "{{hp}} / {{hp-max}}"
     },
+    // Text field with rating.
+    // Текстовое поле с рейтингом.
+    "rating": {
+      "name": "Rating",
+      "visible": false,
+      "x": -35,
+      "y": -20,
+      "alpha": "{{xvm-stat?100|0}}",
+      "color": "{{c:r|#999999}}",
+      "font": {
+        "name": "xvm",
+        "size": 16,
+        "align": "right",
+        "bold": false,
+        "italic": false
+      },
+      "shadow": {
+        "alpha": 100,
+        "color": "0x000000",
+        "angle": 45,
+        "distance": 0,
+        "size": 1,
+        "strength": 100
+      },
+      "format": "&#x115;"
+    },
+    // Text field with player efficiency
+    // Текстовое поле со шкалой опасности игрока
+    "skill": {
+        "name": "skill",       // название текстового поля, ни на что не влияет
+        "visible": true,                // false - не отображать
+        "x": -40,                         // положение по оси X
+        "y": -28,                       // положение по оси Y
+        "alpha": "70",                   // прозрачность (допускается использование динамической прозрачности, см. readme-ru.txt)
+        "color": "0xFFFF00",                  // цвет (допускается использование динамического цвета, см. readme-ru.txt)
+        "font": {                       // параметры шрифта
+          "name": "$FieldFont",         //   название
+          "size": 13,                   //   размер
+          "align": "center",            //   выравнивание текста (left, center, right)
+          "bold": false,                //   обычный (false) или жирный (true)
+          "italic": false               //   обычный (false) или курсив (true)
+        },
+        "shadow": {                     // параметры тени
+          "alpha": 30,                 //   прозрачность
+          "color": null,          //   цвет
+          "angle": 90,                  //   угол смещения
+          "distance": 0,                //   дистанция смещение
+          "size": 6,                    //   размер
+          "strength": 200               //   интенсивность
+        },
+         "format": "<img src='xvm://res/icons/skill/{{c:wn8}}_star.png' width='20' height='20'>" // формат текста. См. описание макросов в readme-ru.txt
+    },
+    // Text field with defend / attack icons 
+    // Текстовое поле с иконкой убийства/защиты
+    "killdef": {
+        "name": "killdef",       // название текстового поля, ни на что не влияет
+        "visible": true,                // false - не отображать
+        "x": 0,                         // положение по оси X
+        "y": -68,                       // положение по оси Y
+        "alpha": "{{a:hp-ratio}}",                   // прозрачность (допускается использование динамической прозрачности, см. readme-ru.txt)
+        "color": "0xFFFF00",                  // цвет (допускается использование динамического цвета, см. readme-ru.txt)
+        "font": {                       // параметры шрифта
+          "name": "$FieldFont",         //   название
+          "size": 13,                   //   размер
+          "align": "center",            //   выравнивание текста (left, center, right)
+          "bold": false,                //   обычный (false) или жирный (true)
+          "italic": false               //   обычный (false) или курсив (true)
+        },
+        "shadow": {                     // параметры тени
+          "alpha": 30,                 //   прозрачность
+          "color": null,          //   цвет
+          "angle": 90,                  //   угол смещения
+          "distance": 0,                //   дистанция смещение
+          "size": 6,                    //   размер
+          "strength": 200               //   интенсивность
+        },
+        "format": "<img src='xvm://res/icons/{{ally?help|kill}}/{{c:vtype}}.png' width='29' height='29'>" // формат текста. См. описание макросов в readme-ru.txt
+    },
     // Text field with the XMQP event marker.
     // Текстовое поле с маркером события XMQP.
     "xmqpEvent": {
@@ -288,59 +366,8 @@
       ${ "def.tankName" },
       ${ "def.playerName" },
       ${ "def.tankHp" },
-      ${ "def.xmqpEvent" },
-      // Text field with player efficiency
-      // Текстовое поле со шкалой опасности игрока
-      {
-        "name": "skill",       // название текстового поля, ни на что не влияет
-        "visible": true,                // false - не отображать
-        "x": -40,                         // положение по оси X
-        "y": -28,                       // положение по оси Y
-        "alpha": "70",                   // прозрачность (допускается использование динамической прозрачности, см. readme-ru.txt)
-        "color": "0xFFFF00",                  // цвет (допускается использование динамического цвета, см. readme-ru.txt)
-        "font": {                       // параметры шрифта
-          "name": "$FieldFont",         //   название
-          "size": 13,                   //   размер
-          "align": "center",            //   выравнивание текста (left, center, right)
-          "bold": false,                //   обычный (false) или жирный (true)
-          "italic": false               //   обычный (false) или курсив (true)
-        },
-        "shadow": {                     // параметры тени
-          "alpha": 30,                 //   прозрачность
-          "color": null,          //   цвет
-          "angle": 90,                  //   угол смещения
-          "distance": 0,                //   дистанция смещение
-          "size": 6,                    //   размер
-          "strength": 200               //   интенсивность
-        },
-         "format": "<img src='xvm://res/icons/skill/{{c:wn8}}_star.png' width='20' height='20'>" // формат текста. См. описание макросов в readme-ru.txt
-      },
-      // Text field with defend / attack icons 
-      // Текстовое поле с иконкой убийства/защиты
-      {
-        "name": "kill/def",       // название текстового поля, ни на что не влияет
-        "visible": false,                // false - не отображать
-        "x": 0,                         // положение по оси X
-        "y": -68,                       // положение по оси Y
-        "alpha": "{{a:hp-ratio}}",                   // прозрачность (допускается использование динамической прозрачности, см. readme-ru.txt)
-        "color": "0xFFFF00",                  // цвет (допускается использование динамического цвета, см. readme-ru.txt)
-        "font": {                       // параметры шрифта
-          "name": "$FieldFont",         //   название
-          "size": 13,                   //   размер
-          "align": "center",            //   выравнивание текста (left, center, right)
-          "bold": false,                //   обычный (false) или жирный (true)
-          "italic": false               //   обычный (false) или курсив (true)
-        },
-        "shadow": {                     // параметры тени
-          "alpha": 30,                 //   прозрачность
-          "color": null,          //   цвет
-          "angle": 90,                  //   угол смещения
-          "distance": 0,                //   дистанция смещение
-          "size": 6,                    //   размер
-          "strength": 200               //   интенсивность
-        },
-        "format": "<img src='xvm://res/icons/help/{{c:vtype}}.png' width='29' height='29'>" // формат текста. См. описание макросов в readme-ru.txt
-      }
+      ${ "def.skill" },
+      ${ "def.xmqpEvent" }
     ]
   },
   // Настройки для противников.
@@ -442,58 +469,7 @@
     "textFields": [
       ${ "def.tankName" },
       ${ "def.tankHp" },
-      // Text field with player efficiency
-      // Текстовое поле со шкалой опасности игрока
-      {
-        "name": "skill",       // название текстового поля, ни на что не влияет
-        "visible": true,                // false - не отображать
-        "x": -40,                         // положение по оси X
-        "y": -28,                       // положение по оси Y
-        "alpha": "70",                   // прозрачность (допускается использование динамической прозрачности, см. readme-ru.txt)
-        "color": "0xFFFF00",                  // цвет (допускается использование динамического цвета, см. readme-ru.txt)
-        "font": {                       // параметры шрифта
-          "name": "$FieldFont",         //   название
-          "size": 13,                   //   размер
-          "align": "center",            //   выравнивание текста (left, center, right)
-          "bold": false,                //   обычный (false) или жирный (true)
-          "italic": false               //   обычный (false) или курсив (true)
-        },
-        "shadow": {                     // параметры тени
-          "alpha": 30,                 //   прозрачность
-          "color": null,          //   цвет
-          "angle": 90,                  //   угол смещения
-          "distance": 0,                //   дистанция смещение
-          "size": 6,                    //   размер
-          "strength": 200               //   интенсивность
-        },
-         "format": "<img src='xvm://res/icons/skill/{{c:wn8}}_star.png' width='20' height='20'>" // формат текста. См. описание макросов в readme-ru.txt
-      },
-      // Text field with defend / attack icons 
-      // Текстовое поле с иконкой убийства/защиты
-      {
-        "name": "kill/def",       // название текстового поля, ни на что не влияет
-        "visible": false,                // false - не отображать
-        "x": 0,                         // положение по оси X
-        "y": -68,                       // положение по оси Y
-        "alpha": "{{a:hp-ratio}}",                   // прозрачность (допускается использование динамической прозрачности, см. readme-ru.txt)
-        "color": "0xFFFF00",                  // цвет (допускается использование динамического цвета, см. readme-ru.txt)
-        "font": {                       // параметры шрифта
-          "name": "$FieldFont",         //   название
-          "size": 13,                   //   размер
-          "align": "center",            //   выравнивание текста (left, center, right)
-          "bold": false,                //   обычный (false) или жирный (true)
-          "italic": false               //   обычный (false) или курсив (true)
-        },
-        "shadow": {                     // параметры тени
-          "alpha": 30,                 //   прозрачность
-          "color": null,          //   цвет
-          "angle": 90,                  //   угол смещения
-          "distance": 0,                //   дистанция смещение
-          "size": 6,                    //   размер
-          "strength": 200               //   интенсивность
-        },
-        "format": "<img src='xvm://res/icons/kill/{{c:vtype}}.png' width='29' height='29'>" // формат текста. См. описание макросов в readme-ru.txt
-      }
+      ${ "def.skill" }
     ]
   }
 }
