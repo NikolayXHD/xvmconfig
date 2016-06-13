@@ -44,7 +44,7 @@
     "strategic": {
       // Camera distance range: [min, max], default - [40, 100]
       // Отдаление камеры: [мин, макс], по умолчанию - [40, 100]
-      "distRange": [20, 100],
+      "distRange": [20, 200],
       // false - disable dynamic camera
       // false - выключить динамическую камеру
       "dynamicCameraEnabled": true
