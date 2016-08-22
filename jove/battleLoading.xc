@@ -88,7 +88,7 @@
     "formatLeftVehicle": "{{vehicle}}",
     // Display format for the right panel (macros allowed, see macros.txt).
     // Формат отображения для правой панели (допускаются макроподстановки, см. macros.txt).
-    "formatRightVehicle": "{{vehicle}}"
+    "formatRightVehicle": "{{vehicle}}",
     // Extra fields. Fields are placed one above the other.
     // Дополнительные поля. Поля располагаются друг над другом.
     // Set of formats for left panel (extended format supported, see above)
