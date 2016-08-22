@@ -19,7 +19,7 @@
     "clockFormat": "H:i:s",
     // true - enable display of battle tier.
     // true - включить отображение уровня боя.
-    "showBattleTier": false,
+    "showBattleTier": true,
     // true - disable Platoon icons. This blank space can house, for example, clan logos.
     // true - убрать отображение иконки взвода. На пустое поле можно вывести, например, иконку клана.
     "removeSquadIcon": false,
@@ -28,7 +28,7 @@
     "vehicleIconAlpha": 100,
     // true - disable vehicle level indicator.
     // true - убрать отображение уровня танка.
-    "removeVehicleLevel": false,
+    "removeVehicleLevel": true,
     // true - disable vehicle type icon. This space will be used for formatted vehicle field.
     // true - убрать отображение типа танка. Пустое место будет использовано под форматируемое поле.
     "removeVehicleTypeIcon": false,
