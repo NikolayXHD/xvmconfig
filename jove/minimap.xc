@@ -6,7 +6,7 @@
   "minimap": {
     // false - Disable.
     // false - отключить.
-    "enabled": true,
+    "enabled": false,
     // Map image transparency.
     // Прозрачность изображения карты.
     "mapBackgroundImageAlpha": 100,
@@ -49,13 +49,13 @@
     "mapSize": ${"minimapMapSize.xc":"mapSize"},
     // Use standard circles
     // Использовать стандартные круги
-    "useStandardCircles": false,
+    "useStandardCircles": true,
     // Use standard labels
     // Использовать стандартные надписи
-    "useStandardLabels": false,
+    "useStandardLabels": true,
     // Use standard lines
     // Использовать стандартные линии
-    "useStandardLines": false,
+    "useStandardLines": true,
     // Minimap labels.
     // Надписи на миникарте.
     "labels": ${"minimapLabels.xc":"labels"},

@@ -29,11 +29,11 @@
     // Text for {{spotted}} macro.
     // Текст для макроса {{spotted}}
     "spotted": {
-      "neverSeen": "<textformat tabstops='[0,20]'><font face='$FieldFont' size='24' color='#DEDEDE'>\t*\t</font></textformat>",
+      "neverSeen": "<textformat rightmargin='7'><font face='$FieldFont' size='24' color='#DEDEDE'>*</font></textformat>",
       "lost": "",
       "spotted": "<img src='xvm://res/icons/revealed.png' width='24' height='24'>",
       "dead": "",
-      "neverSeen_arty": "<textformat tabstops='[0,20]'><font face='$FieldFont' size='24' color='#DEDEDE'>\t*\t</font></textformat>",
+      "neverSeen_arty": "<textformat rightmargin='7'><font face='$FieldFont' size='24' color='#DEDEDE'>*</font></textformat>",
       "lost_arty": "",
       "spotted_arty": "<img src='xvm://res/icons/revealed.png' width='24' height='24'>",
       "dead_arty": ""
