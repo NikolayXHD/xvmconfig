@@ -15,7 +15,7 @@
   "statisticForm": {
     // true - Enable display of battle tier.
     // true - включить отображение уровня боя.
-    "showBattleTier": true,
+    "showBattleTier": false,
     // true - Disable Platoon icons.
     // true - убрать отображение иконки взвода.
     "removeSquadIcon": false,

@@ -6,7 +6,7 @@
   "battle": {
     // false - Disable tank icon mirroring (good for alternative icons).
     // false - отключить зеркалирования иконок танков (полезно для альтернативных иконок).
-    "mirroredVehicleIcons": false,
+    "mirroredVehicleIcons": true,
     // false - Disable pop-up panel at the bottom after death.
     // false - отключить всплывающую внизу панель после смерти.
     "showPostmortemTips": true,
