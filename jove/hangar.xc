@@ -30,7 +30,7 @@
     "enableCrewAutoReturn": true,
     // true - Return crew check box is selected by default
     // true - Включить галочку возврата экипажа по умолчанию
-    "crewReturnByDefault": true,
+    "crewReturnByDefault": false,
     // true - Show flags in barracks
     // true - Показывать флаги в казарме
     "barracksShowFlags": true,
@@ -39,7 +39,7 @@
     "barracksShowSkills": true,
     // true - Enable removable equipment auto return (Camouflage net, Stereoscope, Toolbox)
     // true - Включить автовозврат съемного оборудования (Маскировочная сеть, Стереотруба, Ящик с инструментами)
-    "enableEquipAutoReturn": true,
+    "enableEquipAutoReturn": false,
     // true - Make vehicle not ready for battle if low ammo
     // true - Сделать машину не готовой к битве если мало снарядов
     "blockVehicleIfLowAmmo": true,
@@ -264,6 +264,9 @@
       // Rotation in degrees [0..360].
       // Угол поворота в градусах [0..360].
       "rotation": 0,
+      // Shift X position
+      // Сдвиг по оси X
+      "shiftX": 0,
       // Shift Y position
       // Сдвиг по оси Y
       "shiftY": 0

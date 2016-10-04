@@ -35,6 +35,7 @@
      │                            │   ON_PANEL_MODE_CHANGED
      │                            │   ON_EVERY_FRAME           * can reduce performance
      │                            │   ON_EVERY_SECOND          * can reduce performance
+     │                            │   PY(event_name)  - event from python, sent by as_event(event_name)
      ├────────────────────────────┼──────────────────────────────────────────────────────────────────────────
      │ "hotKeyCode"               │ keyboard key code (see list in hotkeys.xc), when pressed - switches text field to show and apply configured html in "format", or hide;
      │                            │ when defined, text field will not be shown until key is pressed, to disable define null value or delete parameter
@@ -179,13 +180,13 @@
     */
     "hitlogHeader": {
       "enabled": true,
-      "updateEvent": "ON_DAMAGE_CAUSED, ON_PANEL_MODE_CHANGED",
-      "x": "{{pp.mode=0?5|{{py:math.sum({{pp.widthLeft}},50)}}}}",
-      "y": 62,
+      "updateEvent": "ON_DAMAGE_CAUSED",
+      "x": 135,
+      "y":  38,
       "width": 500,
       "height": 1000,
       "textFormat": { "color": "0xF4EFE8", "size": 15 },
-      "format": "{{hitlog-header}}\n{{hitlog-body}}"
+      "format": "{{hitlog-header}}"
       // Format of the full hitlog (header and body)
       // Формат полного хит-лога (шапка и тело)
       // "format": "{{hitlog-header}}\n{{hitlog-body}}"
