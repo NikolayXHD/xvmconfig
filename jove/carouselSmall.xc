@@ -29,6 +29,12 @@
       // "alpha"    - transparency                  / прозрачность
       // "scale"    - scale                         / масштаб
       //
+      // Nation flag.
+      // Флаг нации.
+      "flag": { "enabled": true, "dx": 0, "dy": 0, "alpha": 100, "scale": 1 },
+      // Vehicle icon.
+      // Иконка танка.
+      "tankIcon": { "enabled": true, "dx": 0, "dy": 0, "alpha": 100, "scale": 1 },
       // Vehicle class icon.
       // Иконка типа техники.
       "tankType": { "enabled": true, "dx": 0, "dy": 0, "alpha": 100, "scale": 1 },
@@ -57,14 +63,14 @@
       // Акционная цена
       "actionPrice": { "enabled": true, "dx": 0, "dy": 0, "alpha": 100 }
     },
-    // Extra cell fields (see playersPanel.xc).
-    // Дополнительные поля ячеек (см. playersPanel.xc).
+    // Extra cell fields (extended format supported, see extra-field.txt).
+    // Дополнительные поля ячеек (поддерживается расширенный формат, см. extra-field.txt).
     "extraFields": [
-      // Подложка слота
       // Slot background
+      // Подложка слота
       { "x": 1, "y": 1, "layer": "substrate", "width": 160, "height": 35, "bgColor": "0x0A0A0A" },
-      // Sign of mastery.
-      // Знак мастерства.
+      // Sign of mastery
+      // Знак мастерства
       {
         "enabled": true,
         "x": 4, "y": 14, "width": 23, "height": 23,

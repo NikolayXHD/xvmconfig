@@ -19,7 +19,7 @@
     "clockFormat": "H:i:s",
     // true - enable display of battle tier.
     // true - включить отображение уровня боя.
-    "showBattleTier": true,
+    "showBattleTier": false,
     // true - disable Platoon icons. This blank space can house, for example, clan logos.
     // true - убрать отображение иконки взвода. На пустое поле можно вывести, например, иконку клана.
     "removeSquadIcon": false,
@@ -28,7 +28,7 @@
     "vehicleIconAlpha": 100,
     // true - disable vehicle level indicator.
     // true - убрать отображение уровня танка.
-    "removeVehicleLevel": true,
+    "removeVehicleLevel": false,
     // true - disable vehicle type icon. This space will be used for formatted vehicle field.
     // true - убрать отображение типа танка. Пустое место будет использовано под форматируемое поле.
     "removeVehicleTypeIcon": false,
@@ -91,13 +91,13 @@
     "formatRightVehicle": "{{vehicle}}",
     // Extra fields. Fields are placed one above the other.
     // Дополнительные поля. Поля располагаются друг над другом.
-    // Set of formats for left panel (extended format supported, see above)
-    // Набор форматов для левой панели (поддерживается расширенный формат, см. выше)
+    // Set of formats for left panel (extended format supported, see extra-field.txt)
+    // Набор форматов для левой панели (поддерживается расширенный формат, см. extra-field.txt)
     "extraFieldsLeft": [
       ${"templates.clanIcon"}
     ],
-    // Set of formats for right panel (extended format supported, see above)
-    // Набор форматов для правой панели (поддерживается расширенный формат, см. выше)
+    // Set of formats for right panel (extended format supported, see extra-field.txt)
+    // Набор форматов для правой панели (поддерживается расширенный формат, см. extra-field.txt)
     "extraFieldsRight": [
       ${"templates.clanIcon"}
     ]

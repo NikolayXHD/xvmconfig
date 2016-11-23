@@ -19,7 +19,7 @@
     "height": 100,
     // Spacing between carousel cells.
     // Отступ между ячейками карусели.
-    "gap": -1,
+    "gap": 0,
     // Standard cell elements.
     // Стандартные элементы ячеек.
     "fields": {
@@ -29,6 +29,12 @@
       // "alpha"    - transparency                  / прозрачность
       // "scale"    - scale                         / масштаб
       //
+      // Nation flag.
+      // Флаг нации.
+      "flag": { "enabled": true, "dx": 0, "dy": 0, "alpha": 100, "scale": 1 },
+      // Vehicle icon.
+      // Иконка танка.
+      "tankIcon": { "enabled": true, "dx": 0, "dy": 0, "alpha": 100, "scale": 1 },
       // Vehicle class icon.
       // Иконка типа техники.
       "tankType": { "enabled": true, "dx": 0, "dy": 0, "alpha": 100, "scale": 1 },
@@ -60,11 +66,11 @@
       // Акционная цена
       "actionPrice": { "enabled": true, "dx": 0, "dy": 0, "alpha": 100 }
     },
-    // Extra cell fields (see playersPanel.xc).
-    // Дополнительные поля ячеек (см. playersPanel.xc).
+    // Extra cell fields (extended format supported, see extra-field.txt).
+    // Дополнительные поля ячеек (поддерживается расширенный формат, см. extra-field.txt).
     "extraFields": [
-      // Подложка слота
       // Slot background
+      // Подложка слота
       { "x": 1, "y": 1, "layer": "substrate", "width": 160, "height": 100, "bgColor": "0x0A0A0A" },
       { "x": 2,  "y": 14, "format": "<img src='img://gui/maps/icons/library/BattleResultIcon-1.png' width='14' height='14'>" },
       { "x": 22, "y": 13, "format": "<font face='$FieldFont' size='12' color='{{v.premium?#FFA759|#FFFFFF}}'>{{v.battletiermin}}-{{v.battletiermax}}</font>", "shadow": { "distance": 0, "angle": 90, "color": "0x550000", "alpha": 70, "blur": 10, "strength": 5 } },
