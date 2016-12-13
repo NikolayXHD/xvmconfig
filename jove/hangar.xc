@@ -30,7 +30,7 @@
     "enableCrewAutoReturn": true,
     // true - Return crew check box is selected by default
     // true - Включить галочку возврата экипажа по умолчанию
-    "crewReturnByDefault": false,
+    "crewReturnByDefault": true,
     // Number of perks to show without grouping
     // Количество перков, которые отображаются без группировки
     "crewMaxPerksCount": 8,
@@ -42,7 +42,7 @@
     "barracksShowSkills": true,
     // true - Enable removable equipment auto return (Camouflage net, Stereoscope, Toolbox)
     // true - Включить автовозврат съемного оборудования (Маскировочная сеть, Стереотруба, Ящик с инструментами)
-    "enableEquipAutoReturn": false,
+    "enableEquipAutoReturn": true,
     // true - Make vehicle not ready for battle if low ammo
     // true - Сделать машину не готовой к битве если мало снарядов
     "blockVehicleIfLowAmmo": true,
@@ -280,6 +280,15 @@
     // Show "Premium shop" button
     // Показать кнопку "Премиум магазин"
     "showPremiumShopButton": true,
+    // Behavior of the system channel notifications button on new notifications:
+    //   none - do nothing
+    //   blink - blink button
+    //   full - blink and show counter (default client behavior)
+    // Поведение кнопки оповещений системного канала при новых оповещениях:
+    //   none - ничего не делать
+    //   blink - мигать кнопкой
+    //   full - мигать и показать счетчик (поведение клиента по-умолчанию)
+    "notificationsButtonType": "full",
     // Parameters for tank carousel
     // Параметры карусели танков
     "carousel": ${"carousel.xc":"carousel"},

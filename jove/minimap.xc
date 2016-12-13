@@ -55,10 +55,10 @@
     "circlesEnabled": true,
     // false - use standard labels
     // false - использовать стандартные надписи
-    "labelsEnabled": false,
+    "labelsEnabled": true,
     // false - use standard lines
     // false - использовать стандартные линии
-    "linesEnabled": false,
+    "linesEnabled": true,
     // Minimap labels.
     // Надписи на миникарте.
     "labels": ${"minimapLabels.xc":"labels"},
