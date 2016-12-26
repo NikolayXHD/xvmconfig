@@ -269,7 +269,7 @@ class Data(object):
                      'fireStage': -1,
                      'isBeginFire': False,
                      'number': None,
-                     'reloadGun': 0,
+                     'reloadGun': 0.0,
 					 'caliber': None
                      }
 
@@ -354,11 +354,11 @@ class Data(object):
                     rammer = attacker['vehicleType'].miscAttrs['gunReloadTimeFactor']
                 else:
                     rammer = 1
-                return reload_orig * crew * rammer
+                return float(reload_orig * crew * rammer)
             else:
-                return 0
+                return 0.0
         else:
-            return 0
+            return 0.0
 
     def hitShell(self, attackerID, effectsIndex, damageFactor):
         self.data['isDamage'] = damageFactor > 0
@@ -405,7 +405,7 @@ class Data(object):
             self.data['criticalHit'] = False
             self.data['shellKind'] = 'not_shell'
             self.data['splashHit'] = 'no-splash'
-            self.data['reloadGun'] = 0
+            self.data['reloadGun'] = 0.0
         else:
             self.data['reloadGun'] = self.timeReload(attackerID)
         self.data['attackerID'] = attackerID
@@ -481,7 +481,10 @@ class Log(object):
         self.dataLog = {}
         self.shadow = {}
         self._data = None
-        _data = userprefs.get('DamageLog/dLog', {'x': config.get(section + 'x'), 'y': config.get(section + 'y')})
+        if config.get('damageLog/saveLocationInBattle'):
+            _data = userprefs.get('DamageLog/dLog', {'x': config.get(section + 'x'), 'y': config.get(section + 'y')})
+        else:
+            _data = {'x': config.get(section + 'x'), 'y': config.get(section + 'y')}
         self.x = _data['x']
         self.y = _data['y']
         as_callback("dLog_mouseDown", self.mouse_down)
@@ -575,7 +578,10 @@ class LastHit(object):
         self.dictVehicle = {}
         self.shadow = {}
         self._data = None
-        _data = userprefs.get('DamageLog/lastHit', {'x': config.get(section + 'x'), 'y': config.get(section + 'y')})
+        if config.get('damageLog/saveLocationInBattle'):
+            _data = userprefs.get('DamageLog/lastHit', {'x': config.get(section + 'x'), 'y': config.get(section + 'y')})
+        else:
+            _data = {'x': config.get(section + 'x'), 'y': config.get(section + 'y')}
         self.x = _data['x']
         self.y = _data['y']
         as_callback("lastHit_mouseDown", self.mouse_down)
@@ -690,7 +696,8 @@ def onHealthChanged(self, newHealth, attackerID, attackReasonID):
             on_fire = 0
             as_event('ON_FIRE')
     elif hasattr(BigWorld.player().inputHandler.ctrl, 'curVehicleID'):
-        v = BigWorld.entity(BigWorld.player().inputHandler.ctrl.curVehicleID)
+        vId = BigWorld.player().inputHandler.ctrl.curVehicleID
+        v = vId if isinstance(vId, Vehicle) else BigWorld.entity(vId)
         if (v is not None) and ((self.id == v.id) and not v.isAlive()):
             on_fire = 0
             as_event('ON_FIRE')
