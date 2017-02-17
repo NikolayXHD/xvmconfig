@@ -19,7 +19,7 @@
     "height": 35,
     // Spacing between carousel cells.
     // Отступ между ячейками карусели.
-    "gap": 1,
+    "gap": 9,
     // Standard cell elements.
     // Стандартные элементы ячеек.
     "fields": {

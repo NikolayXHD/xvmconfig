@@ -73,7 +73,7 @@
       // Подложка слота
       { "x": 1, "y": 1, "layer": "substrate", "width": 160, "height": 100, "bgColor": "0x0A0A0A" },
       { "x": 2,  "y": 14, "format": "<img src='img://gui/maps/icons/library/BattleResultIcon-1.png' width='14' height='14'>" },
-      { "x": 22, "y": 13, "format": "<font face='$FieldFont' size='12' color='{{v.premium?#FFA759|#FFFFFF}}'>{{v.battletiermin}}-{{v.battletiermax}}</font>", "shadow": { "distance": 0, "angle": 90, "color": "0x550000", "alpha": 70, "blur": 10, "strength": 5 } },
+      { "x": 22, "y": 13, "format": "<font face='$FieldFont' size='12' color='{{py:battletiers.specialColor(\'{{v.sysname}}\',\'#FFB779\',\'#CCCCCC\')}}'>{{v.battletiermin}}-{{v.battletiermax}}</font>", "shadow": { "distance": 0, "angle": 90, "color": "{{py:battletiers.specialColor(\'{{v.sysname}}\', \'0x771111\', \'0x111111\')}}", "alpha": 70, "blur": 7, "strength": 5 } },
       { "x": 103, "y": 10, "format": "<img src='img://gui/maps/icons/library/proficiency/class_icons_{{v.mastery}}.png' width='23' height='23'>" },
       { "x": 152, "y": 13, "format": "<font face='$FieldFont' size='12' color='{{v.c_winrate}}'>{{v.winrate%d~%| }}</font>", "align":"right", "shadow": { "distance": 0, "angle": 90, "color": "0x000000", "alpha": 70, "blur": 2, "strength":3 } },
       { "x": 152, "y": 27, "format": "<font face='$FieldFont' size='12'><font color='{{v.c_wn8effd}}'>{{v.tdb%d~| }}</font>{{v.xte? / |}}<font color='{{v.c_xte}}'>{{v.xte%s~|}}</font></font>", "align":"right", "shadow": { "distance": 0, "angle": 90, "color": "0x000000", "alpha": 70, "blur": 2, "strength":3 } }

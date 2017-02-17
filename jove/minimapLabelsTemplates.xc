@@ -156,7 +156,7 @@
     "vehicleHP": {
       "$ref": { "path":"def.vtypeSpotted" },
       "layer": "substrate",
-      "format": "<font face='dynamic' size='15' color='{{c:system}}'>{{hp-ratio%.436a|&#xE6;}}</font>",
+      "format": "<font face='dynamic' size='15' color='{{c:system}}'>{{hp-ratio%.335a|&#x1B3;}}</font>",
       "x": 0,
       "y": 0.5
     }
