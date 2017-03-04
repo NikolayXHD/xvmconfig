@@ -56,19 +56,19 @@
     "battleMessenger"      - Чат                            / Chat
     "battleTicker"         - ?                              / ?
     "battleTimer"          - Таймер боя                     / Battle timer
-    "consumablesPanel"   - Панель снарядов и расходников  / Ammo bar
+    "consumablesPanel"     - Панель снарядов и расходников  / Ammo bar
     "damageInfoPanel"      - ?                              / ?
     "damagePanel"          - Панель повреждений             / Damage panel
     "debugPanel"           - Панель пинга/лага/фпс          / Debug panel (ping/lag/fps)
-    "destroyTimersPanel" - ?                              / ?
-    "endWarningPanel"    - Панель оповещяющая о конце боя / Panel informing about the imminent end of the battle
+    "destroyTimersPanel"   - ?                              / ?
+    "endWarningPanel"      - Панель оповещяющая о конце боя / Panel informing about the imminent end of the battle
     "fragCorrelationBar"   - Счёт боя                       / Battle score
-    "fullStats"          - ?                              / ?
-    "minimap"            - Миникарта                      / Minimap
+    "fullStats"            - ?                              / ?
+    "minimap"              - Миникарта                      / Minimap
     "playersPanel"         - Панели игроков (уши)           / Players panels
     "prebattleTimer"       - Таймер до начала боя           / Timer before a battle start
     "radialMenu"           - Радиальное меню                / Radial menu
-    "ribbonsPanel"       - Ленты боевой эффективности     / Battle performance badges
+    "ribbonsPanel"         - Ленты боевой эффективности     / Battle performance badges
     "sixthSense"           - Лампа шестого чувства          / Sixth sense lamp
     "teamBasesPanelUI"     - Полоса захвата баз             / Capture bar
     */

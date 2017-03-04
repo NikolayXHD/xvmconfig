@@ -248,7 +248,7 @@
       "shadow": {
         "enabled": true,
         "distance": 0,
-        "angle": 0,        
+        "angle": 0,
         "color": "0x000000",
         "alpha": 70,
         "blur": 4,

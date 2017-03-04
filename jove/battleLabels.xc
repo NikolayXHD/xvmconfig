@@ -27,7 +27,8 @@
       ${ "battleLabelsTemplates.xc":"def.repairTimeGun" },
       ${ "battleLabelsTemplates.xc":"def.repairTimeTurret" },
       ${ "battleLabelsTemplates.xc":"def.repairTimeTracks" }, 
-      ${ "battleLabelsTemplates.xc":"def.repairTimeSurveying"}
+      ${ "battleLabelsTemplates.xc":"def.repairTimeSurveying" },
+      ${ "battleLabelsTemplates.xc":"def.repairTimeRadio" }
       //repairend
     ]
   }

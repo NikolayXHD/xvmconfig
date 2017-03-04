@@ -45,48 +45,49 @@
     // true - disable standard summarized damage.
     // true - отключить стандартный суммарный урон.
     "disabledSummaryStats": false,
-    //TO DO
-    //true - запоминать местоположение лога и последенего урона в бою
-    "saveLocationInBattle": false,
     // Log of the received damage.
     // Лог полученного урона.
     "log": {
+      //TO DO
+      //true - разрешено перемещать в бою лог полученного урона, макросы в "x" и "y" не работают
+      //false - запрещено перемещать в бою лог полученного урона, макросы в "x" и "y" работают
+      "moveInBattle": false,
       "x": 240,
       "y": -23,
       // Kind of the received damage (macro {{dmg-kind}}).
       // Вид полученного урона (макрос {{dmg-kind}}).
       "dmg-kind": {
         "shot": "{{type-shell}}",                            // shot / попадание
-        "fire": "<font face='xvm'>&#x51;</font>",                     // fire / пожар
-        "ramming": "<font face='xvm'>&#x52;</font>",                  // ramming / таран
-        "world_collision": "<font face='xvm'>&#x53;</font>",          // world collision / столкновение с объектами, падение
-        "drowning": "Dr",                                             // drowning / утопление
-        "overturn": "<font face='xvm'>&#x112;</font>",                // overturn / опрокидывание
-        "death_zone": "DZ",                                           // death zone / смертельная зона
-        "gas_attack": "GA",                                           // gas attack / газовая атака
-        "art_attack": "<font face='xvm'>&#x110;</font>",              // art attack / артиллерийская поддержка
-        "air_strike": "<font face='xvm'>&#x111;</font>"               // air strike / поддержка авиации
+        "fire": "<font face='xvm'>&#x51;</font>",            // fire / пожар
+        "ramming": "<font face='xvm'>&#x52;</font>",         // ramming / таран
+        "world_collision": "<font face='xvm'>&#x53;</font>", // world collision / столкновение с объектами, падение
+        "drowning": "Dr",                                    // drowning / утопление
+        "overturn": "<font face='xvm'>&#x112;</font>",       // overturn / опрокидывание
+        "death_zone": "DZ",                                  // death zone / смертельная зона
+        "gas_attack": "GA",                                  // gas attack / газовая атака
+        "art_attack": "<font face='xvm'>&#x110;</font>",     // art attack / артиллерийская поддержка
+        "air_strike": "<font face='xvm'>&#x111;</font>"      // air strike / поддержка авиации
       },
       // Color depending on the kind of damage (macro {{c:dmg-kind}}).
       // Цвет в зависимости от вида полученного урона (макрос {{c:dmg-kind}}).
       "c:dmg-kind": {
-        "shot": "{{c:hit-effects}}",   // shot / попадание
-        "fire": "#FF6655",             // fire / пожар
-        "ramming": "#998855",          // ramming / таран
-        "world_collision": "#228855",  // world collision / столкновение с объектами, падение
-        "drowning": "#CCCCCC",         // drowning / утопление
-        "overturn": "#CCCCCC",         // overturn / опрокидывание
-        "death_zone": "#CCCCCC",       // death zone / смертельная зона
-        "gas_attack": "#CCCCCC",       // gas attack / газовая атака
+        "shot": "{{c:hit-effects}}",       // shot / попадание
+        "fire": "#FF6655",                 // fire / пожар
+        "ramming": "#998855",              // ramming / таран
+        "world_collision": "#228855",      // world collision / столкновение с объектами, падение
+        "drowning": "#CCCCCC",             // drowning / утопление
+        "overturn": "#CCCCCC",             // overturn / опрокидывание
+        "death_zone": "#CCCCCC",           // death zone / смертельная зона
+        "gas_attack": "#CCCCCC",           // gas attack / газовая атака
         "art_attack": "{{c:hit-effects}}", // art attack / артиллерийская поддержка
         "air_strike": "{{c:hit-effects}}"  // air strike / поддержка авиации
       },
       // Designation of hit by splash damage from shell (HE/HESH). (macro {{splash-hit}}).
       // Обозначение попадание осколков снаряда (ОФ/ХФ). (макрос {{splash-hit}}).
       "splash-hit":{
-        "splash": "<font face='xvm'>&#x2C;</font>",  // splash damage / попадание осколков
-        "no-splash": ""                              // no splash damage / нет попадания осколков
-      },      
+        "splash": "<font face='xvm'>&#x2C;</font>", // splash damage / попадание осколков
+        "no-splash": ""                             // no splash damage / нет попадания осколков
+      },
       // Shell kind (macro {{type-shell}}).
       // Тип снаряда (макрос {{type-shell}}).
       "type-shell": {
@@ -100,13 +101,13 @@
       // Color depending on shell kind (macro {{type-shell}}).
       // Цвет в зависимости от типа снаряда (макрос {{type-shell}}).
       "c:type-shell": {
-        "armor_piercing": "#CCCCCC",       // armor piercing / бронебойный
-        "high_explosive": "#CCCCCC",       // high explosive / осколочно-фугасный
-        "armor_piercing_cr": "#CCCCCC",    // armor piercing composite rigid / бронебойный подкалиберный
-        "armor_piercing_he": "#CCCCCC",    // armor piercing high explosive / бронебойно-фугасный
-        "hollow_charge": "#CCCCCC",        // high explosive anti-tank / кумулятивный
-        "not_shell": "#CCCCCC"             // another source of damage / другой источник урона
-      },      
+        "armor_piercing": "#CCCCCC",    // armor piercing / бронебойный
+        "high_explosive": "#CCCCCC",    // high explosive / осколочно-фугасный
+        "armor_piercing_cr": "#CCCCCC", // armor piercing composite rigid / бронебойный подкалиберный
+        "armor_piercing_he": "#CCCCCC", // armor piercing high explosive / бронебойно-фугасный
+        "hollow_charge": "#CCCCCC",     // high explosive anti-tank / кумулятивный
+        "not_shell": "#CCCCCC"          // another source of damage / другой источник урона
+      },
       // Vehicle type (macro {{vtype}}).
       // Тип техники (макрос {{vtype}}).
       "vtype": {
@@ -130,20 +131,20 @@
       // Kind of hit (macro {{hit-effects}}).
       // Вид попадания (макрос {{hit-effects}}).
       "hit-effects": {
-        "armor_pierced": "{{dmg}}",                                   // penetrated / пробито
-        "intermediate_ricochet": "{{l10n:intermediate_ricochet}}",    // ricochet (intermediate) / рикошет (промежуточный)
-        "final_ricochet": "{{l10n:final_ricochet}}",                  // ricochet / рикошет
-        "armor_not_pierced": "{{l10n:armor_not_pierced}}",            // not penetrated / не пробито
+        "armor_pierced": "{{dmg}}",                                    // penetrated / пробито
+        "intermediate_ricochet": "{{l10n:intermediate_ricochet}}",     // ricochet (intermediate) / рикошет (промежуточный)
+        "final_ricochet": "{{l10n:final_ricochet}}",                   // ricochet / рикошет
+        "armor_not_pierced": "{{l10n:armor_not_pierced}}",             // not penetrated / не пробито
         "armor_pierced_no_damage": "{{l10n:armor_pierced_no_damage}}", // no damage / без урона
         "unknown": "{{l10n:armor_pierced_no_damage}}"                  // unknown / неизвестно
       },
       // Color depending on hit kind (with damage, ricochet, no penetration, no damage) (macro {{c:hit-effects}}).
       // Цвет в зависимости от вида попадания (с уроном, рикошет, не пробито, без урона) (макрос {{c:hit-effects}}).
       "c:hit-effects": {
-        "armor_pierced": "#FF4D3C",          // penetrated (damage) / пробито (урон)
-        "intermediate_ricochet": "#CCCCCC",  // ricochet (intermediate) / рикошет (промежуточный)
-        "final_ricochet": "#CCCCCC",         // ricochet / рикошет
-        "armor_not_pierced": "#CCCCCC",      // not penetrated / не пробито
+        "armor_pierced": "#FF4D3C",           // penetrated (damage) / пробито (урон)
+        "intermediate_ricochet": "#CCCCCC",   // ricochet (intermediate) / рикошет (промежуточный)
+        "final_ricochet": "#CCCCCC",          // ricochet / рикошет
+        "armor_not_pierced": "#CCCCCC",       // not penetrated / не пробито
         "armor_pierced_no_damage": "#CCCCCC", // no damage / без урона
         "unknown": "#CCCCCC"                  // unknown / неизвестно
       },
@@ -165,17 +166,17 @@
       // Source of damage (ally , enemy, self damage) (macro {{team-dmg}}).
       // Источник урона (союзник, противник, урон по себе) (макрос {{team-dmg}}).
       "team-dmg":{
-        "ally-dmg": "",   // ally / союзник
-        "enemy-dmg": "",  // enemy / противник
-        "player": "",     // self damage / урон по себе
+        "ally-dmg": "",  // ally / союзник
+        "enemy-dmg": "", // enemy / противник
+        "player": "",    // self damage / урон по себе
         "unknown": ""    // unknown / неизвестно
       },
       // Color depending on damage source (ally , enemy, self damage) (macro {{c:team-dmg}}).
       // Цвет в зависимости от источника урона (союзник, противник, урон по себе) (макрос {{c:team-dmg}}).
       "c:team-dmg":{
-        "ally-dmg": "#00EAFF",    // ally / союзник
-        "enemy-dmg": "#CCCCCC",   // enemy / противник
-        "player": "#228855",      // self damage / урон по себе
+        "ally-dmg": "#00EAFF",  // ally / союзник
+        "enemy-dmg": "#CCCCCC", // enemy / противник
+        "player": "#228855",    // self damage / урон по себе
         "unknown": "#CCCCCC"    // unknown / неизвестно
       },
       // Text depending on cost shell (gold, credits) (macro {{costShell}}).
@@ -247,11 +248,15 @@
       // TODO
       // Формат подложки альтернативного лога полученного урона.
       "formatHistory": "<img height='20' width='310' src='xvm://res/icons/damageLog/{{dmg=0?no_dmg|dmg}}.png'>"
-    },
+    },    
     // Display the last damage (hit).
     // Отображение последнего урона (попадания).
     "lastHit": {
       "$ref": { "path":"damageLog.log" },
+      //TO DO
+      //true - разрешено перемещать поле последнего урона в бою, макросы в "x" и "y" не работают
+      //false - запрещено перемещать поле последнего урона в бою, макросы в "x" и "y" работают
+      "moveInBattle": false,
       "x": -120,
       "y": 200,
       // true - show hits without damage, false - not to show.

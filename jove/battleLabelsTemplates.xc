@@ -101,7 +101,7 @@
         "knockout": "{{py:xvm.damageLog.dLog_shadow('knockout')}}",
         "quality": "{{py:xvm.damageLog.dLog_shadow('quality')}}" 
       },
-      "textFormat": { "color": "0xF4EFE8", "size": 16 },
+      "textFormat": { "color": "0xF4EFE8", "size": 16},
       "format": "{{py:xvm.damageLog.dLog}}",
       "mouseEvents": {
         "mouseDown": "dLog_mouseDown",
@@ -220,7 +220,7 @@
       "enabled": true,
       "updateEvent": "PY(ON_TRACKS_UPDATE)",
       "x": 177,
-      "y": -146,
+      "y": -147,
       "format": "<b>{{py:repairTimeTracks%0.1f}}</b>"
     },
     // Repair timer for surveying device
@@ -230,8 +230,18 @@
       "enabled": true,
       "updateEvent": "PY(ON_SURVEYING_UPDATE)",
       "x": 177,
-      "y": -107,
+      "y": -108,
       "format": "<b>{{py:repairTimeSurveying%0.1f}}</b>"
+    },
+    // Repair timer for radio
+    // Таймер ремонта радиостанции
+    "repairTimeRadio": {
+      "$ref": { "path":"def.defaultTimeItem" },
+      "enabled": true,
+      "updateEvent": "PY(ON_RADIO_UPDATE)",
+      "x": 177,
+      "y": -69,
+      "format": "<b>{{py:repairTimeRadio%0.1f}}</b>"
     }
   }
 }
