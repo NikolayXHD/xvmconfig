@@ -60,7 +60,7 @@ MACROS_NAME = ['number', 'critical-hit', 'vehicle', 'name', 'vtype', 'c:costShel
                'level', 'clanicon', 'clannb', 'marksOnGun', 'squad-num', 'dmg-ratio', 'hit-effects', 'c:type-shell',
                'splash-hit', 'team-dmg', 'my-alive', 'gun-caliber', 'wn8', 'xwn8', 'eff', 'xeff', 'wgr', 'xwgr', 'xte',
                'c:wn8', 'c:xwn8', 'c:eff', 'c:xeff', 'c:wgr', 'c:xwgr', 'c:xte', 'fire-duration', 'diff-masses',
-               'nation']
+               'nation', 'my-blownup']
 
 
 def keyLower(_dict):
@@ -275,7 +275,8 @@ class Data(object):
                      'caliber': None,
                      'fireDuration': None,
                      'diff-masses': None,
-                     'nation': None
+                     'nation': None,
+                     'blownup': False
                      }
 
     def reset(self):
@@ -431,6 +432,7 @@ class Data(object):
     def onHealthChanged(self, vehicle, newHealth, attackerID, attackReasonID):
         if self.data['attackReasonID'] not in [24, 25]:
             self.data['attackReasonID'] = attackReasonID
+        self.data['blownup'] = (newHealth == -13) or (newHealth == -5)
         self.data['isDamage'] = True
         self.data['hitEffect'] = HIT_EFFECT_CODES[4]
         if self.data['attackReasonID'] != 0:
@@ -506,7 +508,8 @@ def getValueMacroes(section, value):
              'c:xte': readColor('x', value.get('xte', None)),
              'fire-duration': value.get('fireDuration', None),
              'diff-masses': value.get('diff-masses', None),
-             'nation': value.get('nation', None)
+             'nation': value.get('nation', None),
+             'my-blownup': 'blownup' if value['blownup'] else None,
              }
     return macro
 
@@ -526,7 +529,7 @@ def shadow_value(section, macroes):
     return shadow
 
 
-class Log(object):
+class DamageLog(object):
 
     def __init__(self, section):
         self.listLog = []
@@ -536,11 +539,12 @@ class Log(object):
         self.dataLog = {}
         self.shadow = {}
         self._data = None
-        if config.get('damageLog/dLog/moveInBattle'):
-            _data = userprefs.get('DamageLog/dLog', {'x': config.get(section + 'x'), 'y': config.get(section + 'y')})
-            as_callback("dLog_mouseDown", self.mouse_down)
-            as_callback("dLog_mouseUp", self.mouse_up)
-            as_callback("dLog_mouseMove", self.mouse_move)
+        if config.get(section + 'moveInBattle'):
+            _data = userprefs.get('DamageLog/dlog', {'x': config.get(section + 'x'), 'y': config.get(section + 'y')})
+            if section == 'damageLog/log/':
+                as_callback("dLog_mouseDown", self.mouse_down)
+                as_callback("dLog_mouseUp", self.mouse_up)
+                as_callback("dLog_mouseMove", self.mouse_move)
         else:
             _data = {'x': config.get(section + 'x'), 'y': config.get(section + 'y')}
         self.x = _data['x']
@@ -555,7 +559,7 @@ class Log(object):
         self.dictVehicle = {}
         self.dataLog = {}
         self.shadow = {}
-        if (None not in [self.x, self.y]) and config.get('damageLog/dLog/moveInBattle'):
+        if (None not in [self.x, self.y]) and config.get(section + 'moveInBattle') and section == 'damageLog/log/':
             userprefs.set('DamageLog/dLog', {'x': self.x, 'y': self.y})
 
     def mouse_down(self, _data):
@@ -577,7 +581,7 @@ class Log(object):
         self.dataLog['fireDuration'] = BigWorld.time() - beginFire if attackReasonID == 1 else None
         macroes = getValueMacroes(self.section, self.dataLog)
         self.listLog.insert(0, parser(config.get(self.section + 'formatHistory'), macroes))
-        if not config.get('damageLog/dLog/moveInBattle'):
+        if not config.get(self.section + 'moveInBattle'):
             self.x = parser(config.get(self.section + 'x'), macroes)
             self.y = parser(config.get(self.section + 'y'), macroes)
         self.shadow = shadow_value(self.section, macroes)
@@ -611,7 +615,7 @@ class Log(object):
                     numberLine = key['numberLine']
                     macroes = getValueMacroes(self.section, self.dataLog)
                     self.listLog[numberLine] = parser(config.get(self.section + 'formatHistory'), macroes)
-                    if not config.get('damageLog/dLog/moveInBattle'):
+                    if not config.get(self.section + 'moveInBattle'):
                         self.x = parser(config.get(self.section + 'x'), macroes)
                         self.y = parser(config.get(self.section + 'y'), macroes)
                     self.shadow = shadow_value(self.section, macroes)
@@ -644,7 +648,7 @@ class LastHit(object):
         self.dictVehicle = {}
         self.shadow = {}
         self._data = None
-        if config.get('damageLog/lastHit/moveInBattle'):
+        if config.get(self.section + 'moveInBattle'):
             _data = userprefs.get('DamageLog/lastHit', {'x': config.get(section + 'x'), 'y': config.get(section + 'y')})
             as_callback("lastHit_mouseDown", self.mouse_down)
             as_callback("lastHit_mouseUp", self.mouse_up)
@@ -661,7 +665,7 @@ class LastHit(object):
         self.shadow = {}
         if (self.timerLastHit is not None) and self.timerLastHit.isStarted:
             self.timerLastHit.stop()
-        if (None not in [self.x, self.y]) and config.get('damageLog/lastHit/moveInBattle'):
+        if (None not in [self.x, self.y]) and config.get(self.section + 'moveInBattle'):
             userprefs.set('DamageLog/lastHit', {'x': self.x, 'y': self.y})
 
     def mouse_down(self, _data):
@@ -718,14 +722,14 @@ class LastHit(object):
                 dataLog['fireDuration'] = BigWorld.time() - beginFire if attackReasonID == 1 else None
             macroes = getValueMacroes(self.section, dataLog)
             self.strLastHit = parser(config.get(self.section + 'formatLastHit'), macroes)
-            if not config.get('damageLog/lastHit/moveInBattle'):
+            if not config.get(self.section + 'moveInBattle'):
                 self.x = parser(config.get(self.section + 'x'), macroes)
                 self.y = parser(config.get(self.section + 'y'), macroes)
         else:
             if config.get(self.section + 'showHitNoDamage') or data.data['isDamage']:
                 macroes = getValueMacroes(self.section, data.data)
                 self.strLastHit = parser(config.get(self.section + 'formatLastHit'), macroes)
-                if not config.get('damageLog/lastHit/moveInBattle'):
+                if not config.get(self.section + 'moveInBattle'):
                     self.x = parser(config.get(self.section + 'x'), macroes)
                     self.y = parser(config.get(self.section + 'y'), macroes)
             else:
@@ -743,10 +747,10 @@ class LastHit(object):
         return
 
 
-_log = Log('damageLog/log/')
-_logAlt = Log('damageLog/logAlt/')
-_logBackground = Log('damageLog/logBackground/')
-_logAltBackground = Log('damageLog/logAltBackground/')
+_log = DamageLog('damageLog/log/')
+_logAlt = DamageLog('damageLog/logAlt/')
+_logBackground = DamageLog('damageLog/logBackground/')
+_logAltBackground = DamageLog('damageLog/logAltBackground/')
 _lastHit = LastHit('damageLog/lastHit/')
 
 

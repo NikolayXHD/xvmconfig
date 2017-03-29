@@ -70,12 +70,13 @@ def _hasSquadRestrictions(base, self):
 @registerEvent(ArenaDataProvider, 'updateVehicleStats')
 def ArenaDataProvider_updateVehicleStats(self, vID, vStats):
     global fragsSquad, fragsSquad_dict
-    if vID and player.guiSessionProvider.getArenaDP().isSquadMan(vID=vID) and vID != player.playerVehicleID:
-        fragsSquad_dict[vID] = vStats.get('frags', 0)
-        fragsSquad = 0
-        for value in fragsSquad_dict.itervalues():
-            fragsSquad += value
-        as_event('ON_TOTAL_EFFICIENCY')
+    if vID and player is not None:
+        if player.guiSessionProvider.getArenaDP().isSquadMan(vID=vID) and vID != player.playerVehicleID:
+            fragsSquad_dict[vID] = vStats.get('frags', 0)
+            fragsSquad = 0
+            for value in fragsSquad_dict.itervalues():
+                fragsSquad += value
+            as_event('ON_TOTAL_EFFICIENCY')
 
 
 @registerEvent(PlayerAvatar, 'showShotResults')
@@ -152,6 +153,7 @@ def _addRibbon(self, ribbonID, ribbonType='', leftFieldStr='', vehName='', vehTy
                     ribbonTypes[ribbonType][1] = ribbonTypes[ribbonType][0] + int(leftFieldStr[1:])
                 else:
                     ribbonTypes[ribbonType][1] += 1
+                    ribbonTypes[ribbonType][0] = ribbonTypes[ribbonType][1]
             if ribbonType in ['kill', 'teamKill']:
                 ribbonTypes[ribbonType][1] += 1
             if ribbonType in ['damage', 'ram', 'burn']:
