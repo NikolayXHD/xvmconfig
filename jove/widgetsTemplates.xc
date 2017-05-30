@@ -12,6 +12,12 @@
     "layer": "normal",
     "type": "extrafield",
     "formats": [
+      { // фоновая картинка
+        "x": 4,
+        "y": 51,
+        "screenHAlign": "right",
+        "format": "<img src='xvm://res/icons/clock/clockBg.png'>"
+      },
       {
         "updateEvent": "ON_EVERY_FRAME",
         // Horizontal position.
