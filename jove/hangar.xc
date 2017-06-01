@@ -48,7 +48,7 @@
     "blockVehicleIfLowAmmo": true,
     // Below this percentage, ammo is low. (0 - 100)
     // Ниже этого процента, снарядов считается мало. (0 - 100)
-    "lowAmmoPercentage": 80,
+    "lowAmmoPercentage": 20,
     // Ping servers
     // Пинг серверов
     "pingServers": {
