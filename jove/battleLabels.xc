@@ -30,22 +30,6 @@
       ${ "battleLabelsTemplates.xc":"def.repairTimeSurveying" },
       ${ "battleLabelsTemplates.xc":"def.repairTimeRadio" }
       //timerend
-      //repairstart
-      ,${ "battleLabelsRepairControl.xc":"repairCtrlEngine" },
-      ${ "battleLabelsRepairControl.xc":"repairCtrlAmmoBay" },
-      ${ "battleLabelsRepairControl.xc":"repairCtrlGun" },
-      ${ "battleLabelsRepairControl.xc":"repairCtrlTurret" },
-      ${ "battleLabelsRepairControl.xc":"repairCtrlTracks" },
-      ${ "battleLabelsRepairControl.xc":"repairCtrlSurveying" },
-      ${ "battleLabelsRepairControl.xc":"repairCtrlRadio" },
-      ${ "battleLabelsRepairControl.xc":"repairCtrlFuelTank" },
-
-      ${ "battleLabelsRepairControl.xc":"healCtrlCommander" },
-      ${ "battleLabelsRepairControl.xc":"healCtrlRadioman" },
-      ${ "battleLabelsRepairControl.xc":"healCtrlDriver" },
-      ${ "battleLabelsRepairControl.xc":"healCtrlGunner" },
-      ${ "battleLabelsRepairControl.xc":"healCtrlLoader" }
-      //repairend
-    ]
+      ]
   }
 }
