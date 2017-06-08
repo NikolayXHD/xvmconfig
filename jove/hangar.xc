@@ -131,7 +131,7 @@
     "blockVehicleIfLowAmmo": true,
     // Below this percentage, ammo is low. (0 - 100)
     // Ниже этого процента, снарядов считается мало. (0 - 100)
-    "lowAmmoPercentage": 20,
+    "lowAmmoPercentage": 90,
     // Behavior of the system channel notifications button on new notifications:
     //   none - do nothing
     //   blink - blink button
