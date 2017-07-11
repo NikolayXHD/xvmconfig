@@ -16,12 +16,12 @@
     // true - Enable display of battle tier.
     // true - включить отображение уровня боя.
     "showBattleTier": false,
-    // true - Disable Platoon icons.
-    // true - убрать отображение иконки взвода.
+    // true - Disable Platoon/rank icons.
+    // true - убрать отображение иконки взвода/ранга.
     "removeSquadIcon": false,
-    // true - disable rank icons
-    // true - убрать отображение иконки ранга
-    "removeRankIcon": true,
+    // true - disable rank badge icons
+    // true - убрать отображение иконки бейджа ранга
+    "removeRankBadgeIcon": true,
     // Opacity percentage of vehicle icon. 0 - transparent ... 100 - opaque.
     // Прозрачность в процентах иконки танка. 0 - прозрачные, 100 - не прозрачные.
     "vehicleIconAlpha": 100,

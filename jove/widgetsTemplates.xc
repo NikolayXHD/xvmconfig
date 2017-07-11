@@ -47,7 +47,7 @@
           "strength": 2              // (0.0 .. 255.0)  / intensity       / интенсивность
         },
         "textFormat": { "align": "right", "valign": "center", "color": "0xFFFFFF", "leading": -6 },
-        "format": "<font size='23'><b>{{py:xvm.formatDate('%H:%M:%S')}}</b></font><br><font size='14'>{{py:xvm.formatDate('%Au')}}, {{py:xvm.formatDate('%d.%m.%Y')}}</font>"
+        "format": "<font size='23'><b>{{py:xvm.formatDate('%H:%M:%S')}}</b></font><br><font size='14'>{{py:xvm.formatDate('%A')}}, {{py:xvm.formatDate('%d.%m.%Y')}}</font>"
       }
     ]
   }

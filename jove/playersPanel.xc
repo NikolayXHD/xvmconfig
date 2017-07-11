@@ -45,13 +45,6 @@
       "format": "<font color='{{alive?{{x-spotted?#FFBB00|{{x-sense-on?#D9D9D9|#BFBFBF}}}}|#FFFFFF}}' alpha='{{alive?#FF|#80}}'>{{alive?{{x-spotted?&#x70;|{{x-sense-on?&#x70;|{{x-enabled?&#x7A;}}}}}}}}</font>",
       "shadow": {}
     },
-    // "Top tankers" rank definition.
-    // Шаблон позиции в "Танковых асах".
-    "topTankers": {
-      "enabled": true,
-      "x": 77, "y": 6, "width": 16, "height": 16, "align": "center", "bindToIcon": true,
-      "src": "{{top_tankers_emblem}}"
-    },
     // Clan icon.
     // Иконка клана.
     "clanIcon": {
@@ -66,6 +59,20 @@
       "enabled": false,
       "x": 10, "y": 5, "bindToIcon": true,
       "src": "xvm://res/icons/xvm/xvm-user-{{xvm-user|none}}.png"
+    },
+    "winrateRight": {
+      "enabled": true,
+      "x": "{{hasBadges?70|46}}", "y": 2, "width": 60, "height": 20, "align": "right", "bindToIcon": false,
+      //"format": "{{xvm-stat?<font color='{{c:winrate}}'>44</font>|}}"
+      "format": "<font color='{{c:winrate}}' alpha='{{alive?#FF|#80}}'>{{winrate%2d}}</font>",
+      "shadow": {"enabled": false}
+    },
+    "winrateLeft": {
+      "enabled": true,
+      "x": "{{hasBadges?72|48}}", "y": 2, "width": 60, "height": 20, "align": "left", "bindToIcon": false,
+      //"format": "{{xvm-stat?<font color='{{c:winrate}}'>44</font>|}}"
+      "format": "<font color='{{c:winrate}}' alpha='{{alive?#FF|#80}}'>{{winrate%2d}}</font>",
+      "shadow": {"enabled": false}
     },
     // HP bar background.
     // Подложка индикатора HP.
@@ -185,9 +192,9 @@
       // false - disable (отключить)
       "enabled": true,
       // Displayed standard fields in this mode and their order.
-      // Available names: "frags", "rank", "nick", "vehicle".
+      // Available names: "frags", "badge", "nick", "vehicle".
       // Отображаемые стандартные поля в данном режиме, и их порядок.
-      // Допустимые названия: "frags", "rank", "nick", "vehicle".
+      // Допустимые названия: "frags", "badge", "nick", "vehicle".
       "standardFields": [ "frags" ],
       // Width of area for switching to "large" mode on mouse over
       // Ширина области переключения в режим "large" при наведении мыши
@@ -224,13 +231,13 @@
       // Тень для поля фрагов (по умолчанию null = без тени, как в чистом клиенте).
       "fragsShadowLeft": null,
       "fragsShadowRight": null,
-      // Offset of X value for rank column.
-      // Смещение координаты X для поля ранга.
-      "rankXOffsetLeft": 0,
-      "rankXOffsetRight": 0,
-      // Width of the rank column. Default is 24.
-      // Ширина поля ранга. По умолчанию: 24.
-      "rankWidth": 24,
+      // Offset of X value for rank badge column.
+      // Смещение координаты X для поля бейджа ранга.
+      "rankBadgeXOffsetLeft": 0,
+      "rankBadgeXOffsetRight": 0,
+      // Width of the rank badge column. Default is 24.
+      // Ширина поля бейджа ранга. По умолчанию: 24.
+      "rankBadgeWidth": 24,
       // Offset of X value for player name column.
       // Смещение координаты X для поля имени игрока.
       "nickXOffsetLeft": 0,
@@ -243,8 +250,8 @@
       "nickMaxWidth": 158,
       // Display format for player name (macros allowed, see macros.txt).
       // Формат отображения имени игрока (допускаются макроподстановки, см. macros.txt).
-      "nickFormatLeft": "<font face='mono' size='{{xvm-stat?13|0}}' alpha='{{alive?#FF|#80}}'>{{r}}</font> {{name%.15s~..}}<font alpha='#A0'>{{clan}}</font>",
-      "nickFormatRight": "<font alpha='#A0'>{{clan}}</font>{{name%.15s~..}} <font face='mono' size='{{xvm-stat?13|0}}' alpha='{{alive?#FF|#80}}'>{{r}}</font>",
+      "nickFormatLeft": "<font face='mono' size='{{xvm-stat?13|0}}' color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{r}}</font> {{name%.15s~..}}<font alpha='#A0'>{{clan}}</font>",
+      "nickFormatRight": "<font alpha='#A0'>{{clan}}</font>{{name%.15s~..}} <font face='mono' size='{{xvm-stat?13|0}}' color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{r}}</font>",
       // Shadow for player name field (default null = no shadow, as in vanillas client).
       // Тень для поля имени игрока (по умолчанию null = без тени, как в чистом клиенте).
       "nickShadowLeft": null,
@@ -274,7 +281,6 @@
       // Set of formats for left panel (extended format supported, see above)
       // Набор форматов для левой панели (поддерживается расширенный формат, см. выше)
       "extraFieldsLeft": [
-        ${"def.topTankers"},
         //${"def.hpBarBg"},
         //${"def.hpBar"},
         //${"def.hp"},
@@ -285,7 +291,6 @@
       // Set of formats for right panel (extended format supported, see above)
       // Набор форматов для правой панели (поддерживается расширенный формат, см. выше)
       "extraFieldsRight": [
-        ${"def.topTankers"},
         //${"def.hpBarBg"},
         //${"def.hpBar"},
         //${"def.hp"},
@@ -301,10 +306,10 @@
       // false - disable (отключить)
       "enabled": true,
       // Displayed standard fields in this mode and their order.
-      // Available names: "frags", "rank", "nick", "vehicle".
+      // Available names: "frags", "badge", "nick", "vehicle".
       // Отображаемые стандартные поля в данном режиме, и их порядок.
-      // Допустимые названия: "frags", "rank", "nick", "vehicle".
-      "standardFields": [ "frags", "nick" ],
+      // Допустимые названия: "frags", "badge", "nick", "vehicle".
+      "standardFields": [ "frags", "badge", "nick" ],
       // Width of area for switching to "large" mode on mouse over
       // Ширина области переключения в режим "large" при наведении мыши
       "expandAreaWidth": 230,
@@ -340,13 +345,13 @@
       // Тень для поля фрагов (по умолчанию null = без тени, как в чистом клиенте).
       "fragsShadowLeft": null,
       "fragsShadowRight": null,
-      // Offset of X value for rank column.
-      // Смещение координаты X для поля ранга.
-      "rankXOffsetLeft": 0,
-      "rankXOffsetRight": 0,
-      // Width of the rank column. Default is 24.
-      // Ширина поля ранга. По умолчанию: 24.
-      "rankWidth": 24,
+      // Offset of X value for rank badge column.
+      // Смещение координаты X для поля бейджа ранга.
+      "rankBadgeXOffsetLeft": 0,
+      "rankBadgeXOffsetRight": 0,
+      // Width of the rank badge column. Default is 24.
+      // Ширина поля бейджа ранга. По умолчанию: 24.
+      "rankBadgeWidth": "{{hasBadges?24|0}}",
       // Offset of X value for player name column.
       // Смещение координаты X для поля имени игрока.
       "nickXOffsetLeft": 0,
@@ -359,8 +364,8 @@
       "nickMaxWidth": 158,
       // Display format for player nickname (macros allowed, see macros.txt).
       // Формат отображения имени игрока (допускаются макроподстановки, см. macros.txt).
-      "nickFormatLeft": "<font alpha='{{alive?#FF|#80}}'>{{name%.12s~..}}</font> <font alpha='#A0'>{{clan}}</font>",
-      "nickFormatRight": "<font alpha='#A0'>{{clan}}</font> <font alpha='{{alive?#FF|#80}}'>{{name%.12s~..}}</font>",
+      "nickFormatLeft": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{name}}</font> <font alpha='#A0'>{{clan}}</font>",
+      "nickFormatRight": "<font alpha='#A0'>{{clan}}</font> <font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{name}}</font>",
       // Shadow for player name field (default null = no shadow, as in vanillas client).
       // Тень для поля имени игрока (по умолчанию null = без тени, как в чистом клиенте).
       "nickShadowLeft": null,
@@ -374,8 +379,8 @@
       "vehicleWidth": 72,
       // Display format for vehicle name (macros allowed, see macros.txt).
       // Формат отображения названия танка (допускаются макроподстановки, см. macros.txt).
-      "vehicleFormatLeft": "<font alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
-      "vehicleFormatRight": "<font alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
+      "vehicleFormatLeft": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
+      "vehicleFormatRight": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
       // Shadow for vehicle name field (default null = no shadow, as in vanillas client).
       // Тень для поля названия танка (по умолчанию null = без тени, как в чистом клиенте).
       "vehicleShadowLeft": null,
@@ -393,7 +398,6 @@
         //${"def.hp"},
         ${"def.clanIcon"},
         ${"def.xvmUserMarker"},
-        ${"def.topTankers"},
         ${"def.xmqpServiceMarker"}
 ],
       // Set of formats for right panel (extended format supported, see above)
@@ -404,7 +408,6 @@
         //${"def.hp"},
         ${"def.clanIcon"},
         ${"def.xvmUserMarker"},
-        ${"def.topTankers"},
         ${"def.enemySpottedMarker"},
         ${"def.altHp"}
 ]
@@ -415,9 +418,9 @@
       // false - disable (отключить)
       "enabled": true,
       // Displayed standard fields in this mode and their order.
-      // Available names: "frags", "rank", "nick", "vehicle".
+      // Available names: "frags", "badge", "nick", "vehicle".
       // Отображаемые стандартные поля в данном режиме, и их порядок.
-      // Допустимые названия: "frags", "rank", "nick", "vehicle".
+      // Допустимые названия: "frags", "badge", "nick", "vehicle".
       "standardFields": [ "frags", "vehicle" ],
       // Width of area for switching to "large" mode on mouse over
       // Ширина области переключения в режим "large" при наведении мыши
@@ -454,13 +457,13 @@
       // Тень для поля фрагов (по умолчанию null = без тени, как в чистом клиенте).
       "fragsShadowLeft": null,
       "fragsShadowRight": null,
-      // Offset of X value for rank column.
-      // Смещение координаты X для поля ранга.
-      "rankXOffsetLeft": 0,
-      "rankXOffsetRight": 0,
-      // Width of the rank column. Default is 24.
-      // Ширина поля ранга. По умолчанию: 24.
-      "rankWidth": 24,
+      // Offset of X value for rank badge column.
+      // Смещение координаты X для поля бейджа ранга.
+      "rankBadgeXOffsetLeft": 0,
+      "rankBadgeXOffsetRight": 0,
+      // Width of the rank badge column. Default is 24.
+      // Ширина поля бейджа ранга. По умолчанию: 24.
+      "rankBadgeWidth": 24,
       // Offset of X value for player name column.
       // Смещение координаты X для поля имени игрока.
       "nickXOffsetLeft": 0,
@@ -473,8 +476,8 @@
       "nickMaxWidth": 158,
       // Display format for player nickname (macros allowed, see macros.txt).
       // Формат отображения имени игрока (допускаются макроподстановки, см. macros.txt).
-      "nickFormatLeft": "<font alpha='{{alive?#FF|#80}}'>{{name%.12s~..}}</font> <font alpha='#A0'>{{clan}}</font>",
-      "nickFormatRight": "<font alpha='#A0'>{{clan}}</font> <font alpha='{{alive?#FF|#80}}'>{{name%.12s~..}}</font>",
+      "nickFormatLeft": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{name%.12s~..}}</font> <font alpha='#A0'>{{clan}}</font>",
+      "nickFormatRight": "<font alpha='#A0'>{{clan}}</font> <font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{name%.12s~..}}</font>",
       // Shadow for player name field (default null = no shadow, as in vanillas client).
       // Тень для поля имени игрока (по умолчанию null = без тени, как в чистом клиенте).
       "nickShadowLeft": null,
@@ -488,8 +491,8 @@
       "vehicleWidth": 72,
       // Display format for vehicle name (macros allowed, see macros.txt).
       // Формат отображения названия танка (допускаются макроподстановки, см. macros.txt).
-      "vehicleFormatLeft": "<font alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
-      "vehicleFormatRight": "<font alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
+      "vehicleFormatLeft": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
+      "vehicleFormatRight": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
       // Shadow for vehicle name field (default null = no shadow, as in vanillas client).
       // Тень для поля названия танка (по умолчанию null = без тени, как в чистом клиенте).
       "vehicleShadowLeft": null,
@@ -507,7 +510,6 @@
         //${"def.hp"},
         ${"def.clanIcon"},
         ${"def.xvmUserMarker"},
-        ${"def.topTankers"},
         ${"def.xmqpServiceMarker"}
 ],
       // Set of formats for right panel (extended format supported, see above)
@@ -518,7 +520,6 @@
         //${"def.hp"},
         ${"def.clanIcon"},
         ${"def.xvmUserMarker"},
-        ${"def.topTankers"},
         ${"def.enemySpottedMarker"},
         ${"def.altHp"}
 ]
@@ -529,10 +530,10 @@
       // false - disable (отключить)
       "enabled": true,
       // Displayed standard fields in this mode and their order.
-      // Available names: "frags", "rank", "nick", "vehicle".
+      // Available names: "frags", "badge", "nick", "vehicle".
       // Отображаемые стандартные поля в данном режиме, и их порядок.
-      // Допустимые названия: "frags", "rank", "nick", "vehicle".
-      "standardFields": [ "frags", "nick", "vehicle" ],
+      // Допустимые названия: "frags", "badge", "nick", "vehicle".
+      "standardFields": [ "frags", "badge", "nick", "vehicle" ],
       // true - disable platoon icons
       // true - убрать отображение иконок взвода
       "removeSquadIcon": false,
@@ -552,11 +553,11 @@
       "vehicleLevelAlpha": 100,
       // Offset of X value for frags column.
       // Смещение координаты X для поля фрагов.
-      "fragsXOffsetLeft": 0,
-      "fragsXOffsetRight": 0,
+      "fragsXOffsetLeft": "{{xvm-stat?-8|-1}}",
+      "fragsXOffsetRight": "{{xvm-stat?-8|-1}}",
       // Width of the frags column. Default is 24.
       // Ширина поля фрагов. По умолчанию: 24.
-      "fragsWidth": 24,
+      "fragsWidth": "{{xvm-stat?40|26}}",
       // Display format for frags (macros allowed, see macros.txt).
       // Формат отображения фрагов (допускаются макроподстановки, см. macros.txt).
       "fragsFormatLeft": "{{frags}}",
@@ -565,13 +566,13 @@
       // Тень для поля фрагов (по умолчанию null = без тени, как в чистом клиенте).
       "fragsShadowLeft": null,
       "fragsShadowRight": null,
-      // Offset of X value for rank column.
-      // Смещение координаты X для поля ранга.
-      "rankXOffsetLeft": 0,
-      "rankXOffsetRight": 0,
-      // Width of the rank column. Default is 24.
-      // Ширина поля ранга. По умолчанию: 24.
-      "rankWidth": 24,
+      // Offset of X value for rank badge column.
+      // Смещение координаты X для поля бейджа ранга.
+      "rankBadgeXOffsetLeft": "{{xvm-stat?-16|0}}",
+      "rankBadgeXOffsetRight": "{{xvm-stat?-16|0}}",
+      // Width of the rank badge column. Default is 24.
+      // Ширина поля бейджа ранга. По умолчанию: 24.
+      "rankBadgeWidth": "{{hasBadges?24|0}}",
       // Offset of X value for player name column.
       // Смещение координаты X для поля имени игрока.
       "nickXOffsetLeft": 0,
@@ -581,11 +582,11 @@
       "nickMinWidth": 46,
       // Maximum width of the player name column, Default is 158.
       // Максимальная ширина поля имени игрока. По умолчанию: 158.
-      "nickMaxWidth": 158,
+      "nickMaxWidth": "{{xvm-stat?{{hasBadges?119|143}}|{{hasBadges?133|157}}}}",
       // Display format for player nickname (macros allowed, see macros.txt).
       // Формат отображения имени игрока (допускаются макроподстановки, см. macros.txt).
-      "nickFormatLeft": "<font alpha='{{alive?#FF|#80}}'>{{winrate%2d|  }}</font> {{name%.15s~..}}<font alpha='#A0'>{{clan}}</font>",
-      "nickFormatRight": "<font alpha='#A0'>{{clan}}</font>{{name%.15s~..}} <font alpha='{{alive?#FF|#80}}'>{{winrate%2d|  }}</font>",
+      "nickFormatLeft": "{{name}}<font alpha='#A0'>{{clan}}</font>",
+      "nickFormatRight": "<font alpha='#A0'>{{clan}}</font>{{name}}",
       // Shadow for player name field (default null = no shadow, as in vanillas client).
       // Тень для поля имени игрока (по умолчанию null = без тени, как в чистом клиенте).
       "nickShadowLeft": null,
@@ -599,8 +600,8 @@
       "vehicleWidth": 72,
       // Display format for vehicle name (macros allowed, see macros.txt).
       // Формат отображения названия танка (допускаются макроподстановки, см. macros.txt).
-      "vehicleFormatLeft": "<font alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
-      "vehicleFormatRight": "<font alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
+      "vehicleFormatLeft": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
+      "vehicleFormatRight": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
       // Shadow for vehicle name field (default null = no shadow, as in vanillas client).
       // Тень для поля названия танка (по умолчанию null = без тени, как в чистом клиенте).
       "vehicleShadowLeft": null,
@@ -616,9 +617,9 @@
         //${"def.hpBarBg"},
         //${"def.hpBar"},
         //${"def.hp"},
+        ${"def.winrateLeft"},
         ${"def.clanIcon"},
         ${"def.xvmUserMarker"},
-        ${"def.topTankers"},
         ${"def.xmqpServiceMarker"}
 ],
       // Set of formats for right panel (extended format supported, see above)
@@ -627,9 +628,9 @@
         //${"def.hpBarBg"},
         //${"def.hpBar"},
         //${"def.hp"},
+        ${"def.winrateRight"},
         ${"def.clanIcon"},
         ${"def.xvmUserMarker"},
-        ${"def.topTankers"},
         ${"def.enemySpottedMarker"},
         ${"def.altHp"}
 ]

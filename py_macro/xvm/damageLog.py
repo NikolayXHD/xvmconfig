@@ -17,14 +17,17 @@ from Vehicle import Vehicle
 from VehicleEffects import DamageFromShotDecoder
 from constants import ITEM_DEFS_PATH
 from gui.Scaleform.daapi.view.battle.shared.damage_log_panel import DamageLogPanel
-from gui.Scaleform.daapi.view.battle.shared.damage_panel import DamagePanel
+from gui.Scaleform.daapi.view.meta.DamagePanelMeta import DamagePanelMeta
 from gui.shared.utils.TimeInterval import TimeInterval
-from items import vehicles
 from items import vehicles, _xml
 from xfw import *
 from xvm_main.python.logger import *
 from xvm_main.python.stats import _stat
 from constants import DAMAGE_INFO_CODES
+from helpers import dependency
+from skeletons.gui.battle_session import IBattleSessionProvider
+from skeletons.gui.game_control import IBootcampController
+import parser_addon
 
 on_fire = 0
 beginFire = None
@@ -62,7 +65,8 @@ MACROS_NAME = ['number', 'critical-hit', 'vehicle', 'name', 'vtype', 'c:costShel
                'level', 'clanicon', 'clannb', 'marksOnGun', 'squad-num', 'dmg-ratio', 'hit-effects', 'c:type-shell',
                'splash-hit', 'team-dmg', 'my-alive', 'gun-caliber', 'wn8', 'xwn8', 'wn6', 'xwn6', 'eff', 'xeff', 'wgr',
                'xwgr', 'xte', 'c:wn8', 'c:xwn8', 'c:wn6', 'c:xwn6', 'c:eff', 'c:xeff', 'c:wgr', 'c:xwgr', 'c:xte',
-               'fire-duration', 'diff-masses', 'nation', 'my-blownup', 'r', 'c:r', 'stun-duration', 'crit-device']
+               'fire-duration', 'diff-masses', 'nation', 'my-blownup', 'r', 'c:r', 'stun-duration', 'crit-device',
+               'type-shell-key']
 
 RATINGS = {
     'xvm_wgr': {'name': 'xwgr', 'size': 2},
@@ -77,32 +81,32 @@ RATINGS = {
     'basic_xte': {'name': 'xte', 'size': 2}
 }
 
-DEVICES_TANKMAN = {61: 'engine_crit',
-                   62: 'ammo_bay_crit',
-                   63: 'fuel_tank_crit',
-                   64: 'radio_crit',
-                   65: 'left_track_crit',
-                   66: 'right_track_crit',
-                   67: 'gun_crit',
-                   68: 'turret_rotator_crit',
-                   69: 'surveying_device_crit',
-                   70: 'commander',
-                   71: 'driver',
-                   72: 'radioman',
-                   73: 'radioman',
-                   74: 'gunner',
-                   75: 'gunner',
-                   76: 'loader',
-                   77: 'loader',
-                   161: 'engine_destr',
-                   162: 'ammo_bay_destr',
-                   163: 'fuel_tank_destr',
-                   164: 'radio_destr',
-                   165: 'left_track_destr',
-                   166: 'right_track_destr',
-                   167: 'gun_destr',
-                   168: 'turret_rotator_destr',
-                   169: 'surveying_device_destr'
+DEVICES_TANKMAN = {76: 'engine_crit',
+                   77: 'ammo_bay_crit',
+                   78: 'fuel_tank_crit',
+                   79: 'radio_crit',
+                   80: 'left_track_crit',
+                   81: 'right_track_crit',
+                   82: 'gun_crit',
+                   83: 'turret_rotator_crit',
+                   84: 'surveying_device_crit',
+                   85: 'commander',
+                   86: 'driver',
+                   87: 'radioman',
+                   88: 'radioman',
+                   89: 'gunner',
+                   90: 'gunner',
+                   91: 'loader',
+                   92: 'loader',
+                   176: 'engine_destr',
+                   177: 'ammo_bay_destr',
+                   178: 'fuel_tank_destr',
+                   179: 'radio_destr',
+                   180: 'left_track_destr',
+                   181: 'right_track_destr',
+                   182: 'gun_destr',
+                   183: 'turret_rotator_destr',
+                   184: 'surveying_device_destr'
                    }
 
 SECTION_LOG = 'damageLog/log/'
@@ -177,154 +181,16 @@ def readRating():
         return 'xwgr' if scale == 'xvm' else 'wgr'
 
 
-def comparing(_macro, _operator, _math):
-    if isinstance(_macro, basestring):
-        _math = str(_math)
-    elif isinstance(_macro, float):
-        _math = float(_math)
-    elif isinstance(_macro, int):
-        _math = int(_math)
-    if isinstance(_macro, (float, int)) and isinstance(_math, (float, int)):
-        if _operator == '>=':
-            return _macro >= _math
-        elif _operator == '<=':
-            return _macro <= _math
-        elif _operator == '!=':
-            return _macro != _math
-        elif _operator in ('==', '='):
-            return _macro == _math
-        elif _operator == '<':
-            return _macro < _math
-        elif _operator == '>':
-            return _macro > _math
-    elif isinstance(_macro, basestring) and isinstance(_math, basestring):
-        if _operator in ('==', '='):
-            return _macro == _math
-        elif _operator == '!=':
-            return _macro != _math
-    else:
-        return False
-
-
-FLAG = {'': '>', "'": '>', '-': '<', "-'": '<', '0': '0', "0'": '0', "-0": '0<', "-0'": '0<'}
-
-
-def formatMacro(macro, macroes):
-    _macro = macro[2:-2]
-    _macro, _, _def = _macro.partition('|')
-    _macro, _, _rep = _macro.partition('?')
-    fm = {'flag': '', 'type': '', 'width': '', 'suf': ''}
-    _operator = ''
-    for s in ('>=', '<=', '!=', '==', '=', '<', '>'):
-        if s in _macro:
-            _macro, _operator, _math = _macro.partition(s)
-            if '<dl' in _math:
-                return _macro, True
-            break
-    _macro, _, fm['suf'] = _macro.partition('~')
-    _macro, _, t = _macro.partition('%')
-    if t[-1:] in ('s', 'd', 'f', 'x', 'a'):
-        fm['type'] = t[-1:]
-        t = t[:-1]
-    t, _, _prec = t.partition('.')
-    _prec = int(_prec) if _prec.isdigit() else ''
-    for s in ("-0'", "-0", "-'", "0'", '-', '0', "'"):
-        if (s in t) and (s[0] == t[0]):
-            _, fm['flag'], fm['width'] = t.rpartition(s)
-            break
-    if not fm['width'] and t.isdigit():
-        fm['width'] = int(t)
-    tempMacro = _macro
-    if _macro in macroes:
-        _macro = macroes[_macro]
-        if _operator:
-            if _rep and comparing(_macro, _operator, _math):
-                _macro = _rep
-            elif not comparing(_macro, _operator, _math):
-                _macro = _def
-        elif _rep and _macro:
-            _macro = _rep
-        elif _def and not _macro:
-            _macro = _def
-        if _macro == macroes[tempMacro]:
-            fm['flag'] = FLAG[fm['flag']]
-            fm['prec'] = ''
-            if _prec != '':
-                if isinstance(_macro, int):
-                    _macro = int(_macro) + _prec
-                elif isinstance(_macro, float):
-                    fm['prec'] = '.' + str(_prec)
-                elif isinstance(_macro, basestring):
-                    u_macro = unicode(_macro, 'utf8')
-                    if len(u_macro) > _prec:
-                        if (_prec - len(unicode(fm['suf'], 'utf8'))) > 0:
-                            _macro = u_macro[:(_prec - len(fm['suf']))]
-                        else:
-                            _macro = u_macro[:_prec]
-                            fm['suf'] = ''
-                    else:
-                        fm['suf'] = ''
-            if _macro is None:
-                _macro = ''
-            else:
-                _macro = '{0:{flag}{width}{prec}{type}}{suf}'.format(_macro, **fm)
-        return str(_macro), False
-    else:
-        return macro, False
-
-
 def parser(strHTML, macroes):
-    notMacroesDL = {}
-    i = 0
-    if not isinstance(strHTML, str):
-        strHTML = str(strHTML)
-    while '{{' in strHTML:
-        b = True
-        while b:
-            b = False
-            for s in MACROS_NAME:
-                temp_str = '{{%s}}' % s
-                if temp_str in strHTML:
-                    _macro = str(macroes.get(s, ''))
-                    strHTML = strHTML.replace(temp_str, _macro)
-                    b = True
-        start = strHTML.rfind('{{')
-        end = strHTML.find('}}', start) + 2
-        if not ((start >= 0) and (end >= 2)):
-            break
-        substr = strHTML[start:end]
-        for s in MACROS_NAME:
-            begin = substr.find(s)
-            if (begin == 2) and (substr[(2 + len(s))] in ('?', '%', '|',  '>', '<', '!', '=', '~')):
-                _macro, non = formatMacro(substr, macroes)
-                if non:
-                    substr = substr.replace('{{%s' % _macro, '{{%s' % macroes[_macro], 1)
-                    for s1 in MACROS_NAME:
-                        if ('{{%s' % s1) in substr:
-                            _macro = substr
-                            break
-                    else:
-                        i += 1
-                        _macro = '<dl%s>' % str(i)
-                        notMacroesDL[_macro] = substr
-                break
-        else:
-            i += 1
-            _macro = '<dl%s>' % str(i)
-            notMacroesDL[_macro] = substr
-        strHTML = '%s%s%s' % (strHTML[0:start], _macro, strHTML[end:])
-    b = (i > 0)
-    while b:
-        b = False
-        _notMacroesDL = notMacroesDL.copy()
-        for s in _notMacroesDL:
-            if s in strHTML:
-                b = True
-                strHTML = strHTML.replace(s, notMacroesDL.pop(s, ''), 1)
-    return strHTML
+
+    s = parser_addon.parser_addon(strHTML, macroes)
+    return s
 
 
 class Data(object):
+    sessionProvider = dependency.descriptor(IBattleSessionProvider)
+    bootcampController = dependency.descriptor(IBootcampController)
+
     def __init__(self):
         def isGoldShell(n, s):
             if n != 'icons':
@@ -387,6 +253,8 @@ class Data(object):
                      }
 
     def updateData(self):
+        if self.bootcampController.isInBootcamp():
+            return
         player = BigWorld.player()
         self.data['dmgRatio'] = self.data['damage'] * 100 // self.data['maxHealth']
         attackerID = self.data['attackerID']
@@ -443,8 +311,12 @@ class Data(object):
                     self.data['xte'] = None
                 self.data['clanAbbrev'] = attacker['clanAbbrev']
             self.data['clanicon'] = _stat.getClanIcon(attackerID)
-            statXVM = _stat.players.get(attackerID, None)
-            self.data['squadnum'] = statXVM.squadnum if statXVM is not None else None
+            self.data['squadnum'] = None
+            arenaDP = self.sessionProvider.getArenaDP()
+            if arenaDP is not None:
+                vInfo = arenaDP.getVehicleInfo(vID=attackerID)
+                self.squadnum = vInfo.squadIndex
+                self.data['squadnum'] = vInfo.squadIndex if vInfo.squadIndex != 0 else None
         else:
             self.data['teamDmg'] = 'unknown'
             self.data['attackerVehicleType'] = 'not_vehicle'
@@ -476,8 +348,9 @@ class Data(object):
                 self.data['shellKind'] = str(_shell['kind']).lower()
                 self.data['caliber'] = _shell['caliber']
                 _id = _shell['id']
-                self.data['costShell'] = 'gold-shell' if _id[1] in self.shells[nations.NAMES[_id[0]]] else 'silver-shell'
-                self.data['shells_stunning'] = _id[1] in self.shells_stunning[nations.NAMES[_id[0]]]
+                nation = nations.NAMES[_id[0]]
+                self.data['costShell'] = 'gold-shell' if _id[1] in self.shells[nation] else 'silver-shell'
+                self.data['shells_stunning'] = _id[1] in self.shells_stunning[nation]
                 break
 
     def timeReload(self, attackerID):
@@ -525,11 +398,12 @@ class Data(object):
         self.data['criticalHit'] = False
         self.data['isDamage'] = False
         self.data['hitEffect'] = 'unknown'
+        self.data['splashHit'] = 'no-splash'
 
     def showDamageFromShot(self, vehicle, attackerID, points, effectsIndex, damageFactor):
         maxHitEffectCode, decodedPoints = DamageFromShotDecoder.decodeHitPoints(points, vehicle.typeDescriptor)
         self.data['compName'] = decodedPoints[0].componentName if decodedPoints else 'unknown'
-        self.data['splashHit'] = 'no-splash'
+
         # self.data['criticalHit'] = (maxHitEffectCode == 5)
         if not self.data['isDamage']:
             self.data['hitEffect'] = HIT_EFFECT_CODES[min(3, maxHitEffectCode)]
@@ -637,6 +511,7 @@ def getValueMacroes(section, value):
              'splash-hit': conf['splashHit'].get(value['splashHit'], 'unknown'),
              'critical-hit': conf['criticalHit'].get('critical') if value['criticalHit'] else conf['criticalHit'].get('no-critical'),
              'type-shell': conf['typeShell'][value['shellKind']],
+             'type-shell-key': value['shellKind'],
              'c:type-shell': conf['c_typeShell'][value['shellKind']],
              'c:hit-effects': conf['c_hitEffect'].get(value['hitEffect'], 'unknown'),
              'hit-effects': conf['hitEffect'].get(value['hitEffect'], 'unknown'),
@@ -980,7 +855,7 @@ def PlayerAvatar_showVehicleDamageInfo(self, vehicleID, damageIndex, extraIndex,
 @registerEvent(PlayerAvatar, 'updateVehicleHealth')
 def updateVehicleHealth(self, vehicleID, health, deathReasonID, isCrewActive, isRespawn):
     if (vehicleID == self.playerVehicleID) and config.get('damageLog/enabled'):
-        data.data['isDamage'] = (health != data.data['oldHealth'])
+        data.data['isDamage'] = (max(0, health) != data.data['oldHealth'])
 
 
 @registerEvent(Vehicle, 'onEnterWorld')
@@ -1017,8 +892,8 @@ def Vehicle_updateStunInfo(self):
             data.updateStunInfo(self, stunDuration)
 
 
-@registerEvent(DamagePanel, 'as_setFireInVehicleS')
-def DamagePanel_as_setFireInVehicleS(self, isInFire):
+@registerEvent(DamagePanelMeta, 'as_setFireInVehicleS')
+def DamagePanelMeta_as_setFireInVehicleS(self, isInFire):
     global on_fire, beginFire
     if config.get('damageLog/enabled'):
         if isInFire:

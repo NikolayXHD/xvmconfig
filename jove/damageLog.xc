@@ -38,6 +38,7 @@
     {{my-blownup}}        - value 'blownup' if own vehicle's ammunition have been blown up, '' otherwise  / возвращает 'blownup', если взорван боекомплект собственной техники, иначе ''
     {{stun-duration}}     - stun duration / продолжительность оглушения
     {{crit-device}}       - damaged module or shell-shocked crew member / поврежденный модуль или контуженный член экипажа
+    {{type-shell-key}}    - shell kind table key value / название ключа таблицы типа снаряда
 */
 
 {
@@ -70,8 +71,8 @@
         "world_collision": "{{hit-effects}}{{critical-hit}}<tab><font face='xvm'>&#x53;</font>",               // world collision / столкновение с объектами, падение
         "drowning": "{{l10n:drowning}}<tab><font face='xvm'>&#x119;</font>",                                   // drowning / утопление
         "overturn": "{{hit-effects}}<font face='xvm'>&#x112;</font>",                                          // overturn / опрокидывание
-        "death_zone": "DZ",                                  // death zone / смертельная зона
-        "gas_attack": "GA",                                  // gas attack / газовая атака
+        "death_zone": "DZ",                                                                                    // death zone / смертельная зона
+        "gas_attack": "GA",                                                                                    // gas attack / газовая атака
         "art_attack": "{{hit-effects}}{{critical-hit}}{{splash-hit}}<tab><font face='xvm'>&#x110;</font>",     // art attack / артиллерийская поддержка
         "air_strike": "{{hit-effects}}{{critical-hit}}{{splash-hit}}<tab><font face='xvm'>&#x111;</font>"      // air strike / поддержка авиации
       },

@@ -20,12 +20,12 @@
     // true - enable display of battle tier.
     // true - включить отображение уровня боя.
     "showBattleTier": false,
-    // true - disable Platoon icons. This blank space can house, for example, clan logos.
-    // true - убрать отображение иконки взвода. На пустое поле можно вывести, например, иконку клана.
+    // true - disable Platoon/rank icons. This blank space can house, for example, clan logos.
+    // true - убрать отображение иконки взвода/ранга. На пустое поле можно вывести, например, иконку клана.
     "removeSquadIcon": false,
-    // true - disable rank icons
-    // true - убрать отображение иконки ранга
-    "removeRankIcon": true,
+    // true - disable rank badge icons
+    // true - убрать отображение иконки бейджа ранга
+    "removeRankBadgeIcon": true,
     // Opacity percentage of vehicle icon. 0 - transparent ... 100 - opaque.
     // Прозрачность в процентах иконки танка. 0 - прозрачные, 100 - не прозрачные.
     "vehicleIconAlpha": 100,
@@ -88,10 +88,10 @@
     "formatRightNick": "<font alpha='#A0'>{{clan}}</font> {{name%.15s~..}} <img src='xvm://res/icons/xvm/xvm-user-{{xvm-user|none}}.png'> <img src='xvm://res/icons/flags/{{flag|default}}.png' width='16' height='13' vspace='-2'>",
     // Display format for the left panel (macros allowed, see macros.txt).
     // Формат отображения для левой панели (допускаются макроподстановки, см. macros.txt).
-    "formatLeftVehicle": "{{vehicle}}",
+    "formatLeftVehicle": "{{vehicle}}<font face='mono' size='{{xvm-stat?13|0}}'> <font color='{{c:kb}}'>{{kb%2d~k|   }}</font> <font color='{{c:r}}'>{{r_size=2?{{{{r==XX?XX|r%2d}}|  }}|{{r_size=5?{{r%5d|     }}|{{r%4d|    }}}}}}</font> <font color='{{c:winrate}}'>{{winrate%2d~%|   }}</font></font>",
     // Display format for the right panel (macros allowed, see macros.txt).
     // Формат отображения для правой панели (допускаются макроподстановки, см. macros.txt).
-    "formatRightVehicle": "{{vehicle}}",
+    "formatRightVehicle": "<font face='mono' size='{{xvm-stat?13|0}}'><font color='{{c:winrate}}'>{{winrate%2d~%|   }}</font> <font color='{{c:r}}'>{{r_size=2?{{{{r==XX?XX|r%2d}}|  }}|{{r_size=5?{{r%5d|     }}|{{r%4d|    }}}}}}</font> <font color='{{c:kb}}'>{{kb%2d~k|   }}</font> </font>{{vehicle}}",
     // Extra fields. Fields are placed one above the other.
     // Дополнительные поля. Поля располагаются друг над другом.
     // Set of formats for left panel (extended format supported, see extra-field.txt)

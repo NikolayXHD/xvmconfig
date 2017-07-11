@@ -4,9 +4,6 @@
  */
 {
   "hangar": {
-    // true - Show XWN8 instead of XEFF in company windows
-    // true - показывать XWN8 вместо XEFF в окнах рот
-    "xwnInCompany": true,
     // hangar type: null (default), "premium", "basic"
     // тип ангара: null (по умолчанию), "premium", "basic"
     "hangarType": null,
@@ -134,7 +131,7 @@
     "blockVehicleIfLowAmmo": true,
     // Below this percentage, ammo is low. (0 - 100)
     // Ниже этого процента, снарядов считается мало. (0 - 100)
-    "lowAmmoPercentage": 90,
+    "lowAmmoPercentage": 20,
     // Behavior of the system channel notifications button on new notifications:
     //   none - do nothing
     //   blink - blink button
