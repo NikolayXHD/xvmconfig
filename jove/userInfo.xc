@@ -37,7 +37,7 @@
     "showXTEColumn": true,
     // true - Enable filter tanks in hangar by default.
     // true - включить фильтр отображения танков в ангаре по умолчанию.
-    "inHangarFilterEnabled": false,
+    "inHangarFilterEnabled": true,
     // true - Show filters on tanks.
     // true - показывать фильтры отображения танков.
     "showFilters": true,
