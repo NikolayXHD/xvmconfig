@@ -59,7 +59,7 @@
     "enableCrewAutoReturn": true,
     // true - Return crew check box is selected by default
     // true - Включить галочку возврата экипажа по умолчанию
-    "crewReturnByDefault": true,
+    "crewReturnByDefault": false,
     // Number of perks to show without grouping
     // Количество перков, которые отображаются без группировки
     "crewMaxPerksCount": 8,
@@ -125,13 +125,13 @@
     "defaultBoughtForCredits": true,
     // true - Enable removable equipment auto return (Camouflage net, Stereoscope, Toolbox)
     // true - Включить автовозврат съемного оборудования (Маскировочная сеть, Стереотруба, Ящик с инструментами)
-    "enableEquipAutoReturn": true,
+    "enableEquipAutoReturn": false,
     // true - Make vehicle not ready for battle if low ammo
     // true - Сделать машину не готовой к битве если мало снарядов
     "blockVehicleIfLowAmmo": true,
     // Below this percentage, ammo is low. (0 - 100)
     // Ниже этого процента, снарядов считается мало. (0 - 100)
-    "lowAmmoPercentage": 90,
+    "lowAmmoPercentage": 20,
     // Behavior of the system channel notifications button on new notifications:
     //   none - do nothing
     //   blink - blink button
@@ -274,7 +274,7 @@
       "enabled": false,
       // Axis field coordinates
       // Положение поля по осям
-      "x": -3,
+      "x": -90,
       "y": 51,
       // Horizontal alignment of field at screen ("left", "center", "right").
       // Горизонтальное выравнивание поля на экране ("left", "center", "right").

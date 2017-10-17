@@ -195,7 +195,7 @@
           "blur": 6,                    //   размер
           "strength": 1                 //   интенсивность
         },
-         "format": "<img src='xvm://res/icons/skill/{{c:wn8}}_star.png' width='20' height='20'>" // формат текста. См. описание макросов в readme-ru.txt
+         "format": "<img src='xvm://res/icons/skill/{{c:r}}_star.png' width='20' height='20'>" // формат текста. См. описание макросов в readme-ru.txt
     },
     // Text field with defend / attack icons 
     // Текстовое поле с иконкой убийства/защиты

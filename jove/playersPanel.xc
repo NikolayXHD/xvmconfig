@@ -250,8 +250,8 @@
       "nickMaxWidth": 158,
       // Display format for player name (macros allowed, see macros.txt).
       // Формат отображения имени игрока (допускаются макроподстановки, см. macros.txt).
-      "nickFormatLeft": "<font face='mono' size='{{xvm-stat?13|0}}' alpha='{{alive?#FF|#80}}'>{{r}}</font> {{name%.15s~..}}<font alpha='#A0'>{{clan}}</font>",
-      "nickFormatRight": "<font alpha='#A0'>{{clan}}</font>{{name%.15s~..}} <font face='mono' size='{{xvm-stat?13|0}}' alpha='{{alive?#FF|#80}}'>{{r}}</font>",
+      "nickFormatLeft": "<font face='mono' size='{{xvm-stat?13|0}}' color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{r}}</font> {{name%.15s~..}}<font alpha='#A0'>{{clan}}</font>",
+      "nickFormatRight": "<font alpha='#A0'>{{clan}}</font>{{name%.15s~..}} <font face='mono' size='{{xvm-stat?13|0}}' color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{r}}</font>",
       // Shadow for player name field (default null = no shadow, as in vanillas client).
       // Тень для поля имени игрока (по умолчанию null = без тени, как в чистом клиенте).
       "nickShadowLeft": null,
@@ -286,8 +286,9 @@
         //${"def.hp"},
         ${"def.clanIcon"},
         ${"def.xvmUserMarker"},
-        ${"def.xmqpServiceMarker"}
-],
+        ${"def.xmqpServiceMarker"},
+        {"x": 0, "y": 0, "bgColor": "0x00FF00", "h": 24, "w": "{{hp-ratio:143}}", "alpha": "{{alive?20|0}}"}
+      ],
       // Set of formats for right panel (extended format supported, see above)
       // Набор форматов для правой панели (поддерживается расширенный формат, см. выше)
       "extraFieldsRight": [
@@ -297,8 +298,9 @@
         ${"def.clanIcon"},
         ${"def.xvmUserMarker"},
         ${"def.enemySpottedMarker"},
-        ${"def.altHp"}
-]
+        ${"def.altHp"},
+        {"x": 0, "y": 0, "bgColor": "0xFF0000", "h": 24, "w": "{{hp-ratio:144}}", "alpha": "{{alive?30|0}}"}
+      ]
     },
     // Options for the "medium" panels - the first of the medium panels.
     // Режим ушей "medium" - первые средние уши в игре.
@@ -358,14 +360,14 @@
       "nickXOffsetRight": 0,
       // Minimum width of the player name column. Default is 46.
       // Минимальная ширина поля имени игрока. По умолчанию: 46.
-      "nickMinWidth": 46,
+      "nickMinWidth": "{{hasBadges?87|111}}",
       // Maximum width of the player name column. Default is 158.
       // Максимальная ширина поля имени игрока. По умолчанию: 158.
-      "nickMaxWidth": 158,
+      "nickMaxWidth": "{{hasBadges?87|111}}",
       // Display format for player nickname (macros allowed, see macros.txt).
       // Формат отображения имени игрока (допускаются макроподстановки, см. macros.txt).
-      "nickFormatLeft": "<font alpha='{{alive?#FF|#80}}'>{{name}}</font> <font alpha='#A0'>{{clan}}</font>",
-      "nickFormatRight": "<font alpha='#A0'>{{clan}}</font> <font alpha='{{alive?#FF|#80}}'>{{name}}</font>",
+      "nickFormatLeft": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{name}}</font> <font alpha='#A0'>{{clan}}</font>",
+      "nickFormatRight": "<font alpha='#A0'>{{clan}}</font> <font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{name}}</font>",
       // Shadow for player name field (default null = no shadow, as in vanillas client).
       // Тень для поля имени игрока (по умолчанию null = без тени, как в чистом клиенте).
       "nickShadowLeft": null,
@@ -379,8 +381,8 @@
       "vehicleWidth": 72,
       // Display format for vehicle name (macros allowed, see macros.txt).
       // Формат отображения названия танка (допускаются макроподстановки, см. macros.txt).
-      "vehicleFormatLeft": "<font alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
-      "vehicleFormatRight": "<font alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
+      "vehicleFormatLeft": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
+      "vehicleFormatRight": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
       // Shadow for vehicle name field (default null = no shadow, as in vanillas client).
       // Тень для поля названия танка (по умолчанию null = без тени, как в чистом клиенте).
       "vehicleShadowLeft": null,
@@ -398,8 +400,9 @@
         //${"def.hp"},
         ${"def.clanIcon"},
         ${"def.xvmUserMarker"},
-        ${"def.xmqpServiceMarker"}
-],
+        ${"def.xmqpServiceMarker"},
+        {"x": 0, "y": 0, "bgColor": "0x00FF00", "h": 24, "w": "{{hp-ratio:172}}", "alpha": "{{alive?20|0}}"}
+      ],
       // Set of formats for right panel (extended format supported, see above)
       // Набор форматов для правой панели (поддерживается расширенный формат, см. выше)
       "extraFieldsRight": [
@@ -409,8 +412,9 @@
         ${"def.clanIcon"},
         ${"def.xvmUserMarker"},
         ${"def.enemySpottedMarker"},
-        ${"def.altHp"}
-]
+        ${"def.altHp"},
+        {"x": 0, "y": 0, "bgColor": "0xFF0000", "h": 24, "w": "{{hp-ratio:174}}", "alpha": "{{alive?30|0}}"}
+      ]
     },
     // Options for the "medium2" panels - the second of the medium panels.
     // Режим ушей "medium2" - вторые средние уши в игре.
@@ -476,8 +480,8 @@
       "nickMaxWidth": 158,
       // Display format for player nickname (macros allowed, see macros.txt).
       // Формат отображения имени игрока (допускаются макроподстановки, см. macros.txt).
-      "nickFormatLeft": "<font alpha='{{alive?#FF|#80}}'>{{name%.12s~..}}</font> <font alpha='#A0'>{{clan}}</font>",
-      "nickFormatRight": "<font alpha='#A0'>{{clan}}</font> <font alpha='{{alive?#FF|#80}}'>{{name%.12s~..}}</font>",
+      "nickFormatLeft": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{name%.12s~..}}</font> <font alpha='#A0'>{{clan}}</font>",
+      "nickFormatRight": "<font alpha='#A0'>{{clan}}</font> <font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{name%.12s~..}}</font>",
       // Shadow for player name field (default null = no shadow, as in vanillas client).
       // Тень для поля имени игрока (по умолчанию null = без тени, как в чистом клиенте).
       "nickShadowLeft": null,
@@ -491,8 +495,8 @@
       "vehicleWidth": 72,
       // Display format for vehicle name (macros allowed, see macros.txt).
       // Формат отображения названия танка (допускаются макроподстановки, см. macros.txt).
-      "vehicleFormatLeft": "<font alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
-      "vehicleFormatRight": "<font alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
+      "vehicleFormatLeft": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
+      "vehicleFormatRight": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
       // Shadow for vehicle name field (default null = no shadow, as in vanillas client).
       // Тень для поля названия танка (по умолчанию null = без тени, как в чистом клиенте).
       "vehicleShadowLeft": null,
@@ -510,8 +514,9 @@
         //${"def.hp"},
         ${"def.clanIcon"},
         ${"def.xvmUserMarker"},
-        ${"def.xmqpServiceMarker"}
-],
+        ${"def.xmqpServiceMarker"},
+        {"x": 0, "y": 0, "bgColor": "0x00FF00", "h": 24, "w": "{{hp-ratio:134}}", "alpha": "{{alive?20|0}}"}
+      ],
       // Set of formats for right panel (extended format supported, see above)
       // Набор форматов для правой панели (поддерживается расширенный формат, см. выше)
       "extraFieldsRight": [
@@ -521,8 +526,9 @@
         ${"def.clanIcon"},
         ${"def.xvmUserMarker"},
         ${"def.enemySpottedMarker"},
-        ${"def.altHp"}
-]
+        ${"def.altHp"},
+        {"x": 0, "y": 0, "bgColor": "0xFF0000", "h": 24, "w": "{{hp-ratio:136}}", "alpha": "{{alive?30|0}}"}
+      ]
     },
     // Options for the "large" panels - the widest panels.
     // Режим ушей "large" - широкие уши в игре.
@@ -579,7 +585,7 @@
       "nickXOffsetRight": 0,
       // Minimum width of the player name column. Default is 46.
       // Минимальная ширина поля имени игрока. По умолчанию: 46.
-      "nickMinWidth": 46,
+      "nickMinWidth": "{{xvm-stat?{{hasBadges?119|143}}|{{hasBadges?133|157}}}}",
       // Maximum width of the player name column, Default is 158.
       // Максимальная ширина поля имени игрока. По умолчанию: 158.
       "nickMaxWidth": "{{xvm-stat?{{hasBadges?119|143}}|{{hasBadges?133|157}}}}",
@@ -600,8 +606,8 @@
       "vehicleWidth": 72,
       // Display format for vehicle name (macros allowed, see macros.txt).
       // Формат отображения названия танка (допускаются макроподстановки, см. macros.txt).
-      "vehicleFormatLeft": "<font alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
-      "vehicleFormatRight": "<font alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
+      "vehicleFormatLeft": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
+      "vehicleFormatRight": "<font color='{{c:r}}' alpha='{{alive?#FF|#80}}'>{{vehicle}}</font>",
       // Shadow for vehicle name field (default null = no shadow, as in vanillas client).
       // Тень для поля названия танка (по умолчанию null = без тени, как в чистом клиенте).
       "vehicleShadowLeft": null,
@@ -620,8 +626,9 @@
         ${"def.winrateLeft"},
         ${"def.clanIcon"},
         ${"def.xvmUserMarker"},
-        ${"def.xmqpServiceMarker"}
-],
+        ${"def.xmqpServiceMarker"},
+      	{"x": 0, "y": 0, "bgColor": "0x00FF00", "h": 24, "w": "{{hp-ratio:291}}", "alpha": "{{alive?20|0}}"}
+      ],
       // Set of formats for right panel (extended format supported, see above)
       // Набор форматов для правой панели (поддерживается расширенный формат, см. выше)
       "extraFieldsRight": [
@@ -632,8 +639,9 @@
         ${"def.clanIcon"},
         ${"def.xvmUserMarker"},
         ${"def.enemySpottedMarker"},
-        ${"def.altHp"}
-]
+        ${"def.altHp"},
+      	{"x": 0, "y": 0, "bgColor": "0xFF0000", "h": 24, "w": "{{hp-ratio:293}}", "alpha": "{{alive?30|0}}"}
+      ]
     }
   }
 }

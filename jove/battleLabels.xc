@@ -13,7 +13,6 @@
     "formats": [
       ${ "battleLabelsTemplates.xc":"def.hitlogHeader" }
       //${ "battleLabelsTemplates.xc":"def.hitlogBody" },
-      //${ "battleLabelsTemplates.xc":"def.winChance" },
       //${ "battleLabelsTemplates.xc":"def.totalHP" },
       //${ "battleLabelsTemplates.xc":"def.avgDamage" },
       //${ "battleLabelsTemplates.xc":"def.mainGun" },
@@ -21,7 +20,7 @@
       //${ "battleLabelsTemplates.xc":"def.damageLog" },
       //${ "battleLabelsTemplates.xc":"def.lastHit" },
       //${ "battleLabelsTemplates.xc":"def.fire" },
-      //${ "battleLabelsTemplates.xc":"def.totalEfficiency" }
+      //${ "battleLabelsTemplates.xc":"def.totalEfficiency" },
       //timerstart
       ,${ "battleLabelsTemplates.xc":"def.repairTimeEngine" },
       ${ "battleLabelsTemplates.xc":"def.repairTimeGun" },
