@@ -8,13 +8,13 @@
   "def": {
     "hitlogHeader": {
       "enabled": true,
-      "updateEvent": "ON_DAMAGE_CAUSED",
-      "x": 135,
-      "y":  38,
+      "updateEvent": "ON_DAMAGE_CAUSED, ON_PANEL_MODE_CHANGED",
+      "x": "{{pp.mode=0?5|{{py:sum({{pp.widthLeft}},50)}}}}",
+      "y": 62,
       "width": 500,
       "height": 1000,
       "textFormat": { "color": "0xF4EFE8", "size": 15 },
-      "format": "{{hitlog-header}}"
+      "format": "{{hitlog-header}}\n{{hitlog-body}}"
       // Format of the full hitlog (header and body)
       // Формат полного хит-лога (шапка и тело)
       // "format": "{{hitlog-header}}\n{{hitlog-body}}"
