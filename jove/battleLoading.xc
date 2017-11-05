@@ -85,10 +85,10 @@
     "formatRightNick": "<font alpha='#A0'>{{clan}}</font> {{name%.15s~..}} <img src='xvm://res/icons/xvm/xvm-user-{{xvm-user|none}}.png'> <img src='xvm://res/icons/flags/{{flag|default}}.png' width='16' height='13' vspace='-2'>",
     // Display format for the left panel (macros allowed, see macros.txt).
     // Формат отображения для левой панели (допускаются макроподстановки, см. macros.txt).
-    "formatLeftVehicle": "{{vehicle}}",
+    "formatLeftVehicle": "{{vehicle}}<font face='mono' size='{{xvm-stat?13|0}}'> <font color='{{c:kb}}'>{{kb%2d~k|   }}</font> <font color='{{c:r}}'>{{r_size=2?{{{{r==XX?XX|r%2d}}|  }}|{{r_size=5?{{r%5d|     }}|{{r%4d|    }}}}}}</font> <font color='{{c:winrate}}'>{{winrate%2d~%|   }}</font></font>",
     // Display format for the right panel (macros allowed, see macros.txt).
     // Формат отображения для правой панели (допускаются макроподстановки, см. macros.txt).
-    "formatRightVehicle": "{{vehicle}}",
+    "formatRightVehicle": "<font face='mono' size='{{xvm-stat?13|0}}'><font color='{{c:winrate}}'>{{winrate%2d~%|   }}</font> <font color='{{c:r}}'>{{r_size=2?{{{{r==XX?XX|r%2d}}|  }}|{{r_size=5?{{r%5d|     }}|{{r%4d|    }}}}}}</font> <font color='{{c:kb}}'>{{kb%2d~k|   }}</font> </font>{{vehicle}}",
     // Extra fields. Fields are placed one above the other.
     // Дополнительные поля. Поля располагаются друг над другом.
     // Set of formats for left panel (extended format supported, see extra-field.txt)
