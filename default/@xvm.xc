@@ -13,7 +13,7 @@
  *
  * Внимание! Кодировка файлов должна оставаться UTF8+BOM. В противном случае
  * вместо кириллицы в игре будут пустые глифы.
- * Для редактирования используйте Notepad++. http://goo.gl/y6iet
+ * Для редактирования используйте Notepad++. https://goo.gl/y6iet
  * В случае блокнота Windows: Сохранить как -> Кодировка: UTF.
  */
 {
@@ -62,7 +62,7 @@
 
     // Supported version of the game.
     // Поддерживаемая версия игры.
-    "gameVersion": "0.9.20.1.1",
+    "gameVersion": "0.9.20.1.3",
 
     // The minimum required version of the XVM mod.
     // Минимально необходимая версия мода XVM.
@@ -99,7 +99,7 @@
 
   // Log of the received hits.
   // Лог полученных попаданий.
-  "damageLog": ${"damageLog.xc":"damageLog"},  
+  "damageLog": ${"damageLog.xc":"damageLog"},
 
   // Special XVM hotkeys.
   // Специальные горячие клавиши XVM.

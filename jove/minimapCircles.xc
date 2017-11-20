@@ -24,8 +24,8 @@
     //   "blindarea_motion" - реальная граница слепой зоны танка в движении (50<=X<=445)
     //   "blindarea_standing" - реальная граница слепой зоны танка стоя (50<=X<=445)
     // Источник:
-    //   http://www.koreanrandom.com/forum/topic/15467-/page-5#entry187139
-    //   http://www.koreanrandom.com/forum/topic/15467-/page-4#entry186794
+    //   https://koreanrandom.com/forum/topic/15467-/?do=findComment&comment=187139
+    //   https://koreanrandom.com/forum/topic/15467-/?do=findComment&comment=186794
     "view": [
       // Main circles:
       // Основные круги:
@@ -44,16 +44,16 @@
     // Maximum range of fire for artillery
     // Artillery gun fire range may differ depending on vehicle angle relative to ground
     // and vehicle height positioning relative to target. These factors are not considered.
-    // See pics at http://goo.gl/ZqlPa
+    // See pics at https://goo.gl/ZqlPa
     // ------------------------------------------------------------------------------------------------
     // Максимальная дальность стрельбы для артиллерии
     // Дальнобойность арты может меняться в зависимости от углов постановки машины на склонах местности
     // и высоте расположения машины относительно цели. На миникарте эти факторы не учитываются.
-    // Подробнее по ссылке: http://goo.gl/ZqlPa
-    "artillery": { "enabled": true, "alpha": 50, "color": "0xEE4444", "thickness": 1.0 },
+    // Подробнее по ссылке: https://goo.gl/ZqlPa
+    "artillery": { "enabled": true, "alpha": 55, "color": "0xFF6666", "thickness": 0.5 },
     // Maximum range of shooting for machine gun
     // Максимальная дальность полета снаряда для пулеметных танков
-    "shell":     { "enabled": true, "alpha": 50, "color": "0x0000FF", "thickness": 0.5 },
+    "shell":     { "enabled": true, "alpha": 55, "color": "0xFF6666", "thickness": 0.5 },
     // Special circles dependent on vehicle type.
     // Many configuration lines for the same vehicle make many circles.
     // See other vehicle types at (replace : symbol with -):

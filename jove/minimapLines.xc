@@ -81,8 +81,8 @@
          { "$ref": { "path": "def.dot" }, "from": 1299, "to": 1300, "thickness": 1.5, "alpha": 55 },
          { "$ref": { "path": "def.dot" }, "from": 1399, "to": 1400, "thickness": 1.5, "alpha": 55 }
        ],
-       // Gun traverse angles may differ depending on vehicle angle relative to ground. See pics at http://goo.gl/ZqlPa
-       // Углы горизонтальной наводки могут меняться в зависимости от углов постановки машины на склонах местности. Подробнее по ссылке: http://goo.gl/ZqlPa
+       // Gun traverse angles may differ depending on vehicle angle relative to ground. See pics at https://goo.gl/ZqlPa
+       // Углы горизонтальной наводки могут меняться в зависимости от углов постановки машины на склонах местности. Подробнее по ссылке: https://goo.gl/ZqlPa
        //---------------------------------------------------------------------------------------------------
        // Horizontal gun traverse angle lines.
        // Углы горизонтальной наводки.
