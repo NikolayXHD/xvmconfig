@@ -131,7 +131,7 @@
     "blockVehicleIfLowAmmo": true,
     // Below this percentage, ammo is low. (0 - 100)
     // Ниже этого процента, снарядов считается мало. (0 - 100)
-    "lowAmmoPercentage": 90,
+    "lowAmmoPercentage": 20,
     // Behavior of the system channel notifications button on new notifications:
     //   none - do nothing
     //   blink - blink button
@@ -274,11 +274,11 @@
       "enabled": false,
       // Axis field coordinates
       // Положение поля по осям
-      "x": -90,
-      "y": 51,
+      "x": 80,
+      "y": 54,
       // Horizontal alignment of field at screen ("left", "center", "right").
       // Горизонтальное выравнивание поля на экране ("left", "center", "right").
-      "hAlign": "right",
+      "hAlign": "left",
       // Vertical alignment of field at screen ("top", "center", "bottom").
       // Вертикальное выравнивание поля на экране ("top", "center", "bottom").
       "vAlign": "top",
@@ -303,10 +303,10 @@
       "leading": 0,
       // layer - "bottom", "normal" (default), "top".
       // слой - "bottom", "normal" (по-умолчанию), "top".
-      "layer": "normal",
+      "layer": "top",
       // true - show title "Online"
       // true - показывать заголовок "Онлайн"
-      "showTitle": true,
+      "showTitle": false,
       // true - show server names in list
       // true - показывать названия серверов в списке
       "showServerName": true,
@@ -321,7 +321,7 @@
       "errorString": "--k",
       // List of ignored servers, for example, ["RU1", "RU2"]
       // Список игнорируемых серверов, например, ["RU1", "RU2"]
-      "ignoredServers": [],
+      "ignoredServers": ["RU3","RU4","RU8","RU9","RU10"],
       // Text style
       // Стиль текста
       "fontStyle": {
