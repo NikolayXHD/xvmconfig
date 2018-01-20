@@ -29,6 +29,9 @@
     // Show "Premium shop" button
     // Показать кнопку "Премиум магазин"
     "showPremiumShopButton": true,
+    // Show "General chat" button
+    // Показать кнопку "Общий чат"
+    "showGeneralChatButton": true,
     // true - enable locker for gold
     // true - включить замок для золота
     "enableGoldLocker": true,
@@ -131,7 +134,7 @@
     "blockVehicleIfLowAmmo": true,
     // Below this percentage, ammo is low. (0 - 100)
     // Ниже этого процента, снарядов считается мало. (0 - 100)
-    "lowAmmoPercentage": 90,
+    "lowAmmoPercentage": 20,
     // Behavior of the system channel notifications button on new notifications:
     //   none - do nothing
     //   blink - blink button
