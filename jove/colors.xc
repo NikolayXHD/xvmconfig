@@ -15,12 +15,12 @@
     // Dynamic color by various statistical parameters.
     // Динамический цвет по различным статистическим показателям.
     "colorRating": {
-      "very_bad":     "0xFF8888",   // very bad   / очень плохо
-      "bad":          "0xFFCCCC",   // bad        / плохо
-      "normal":       "0xFFFFCC",   // normal     / средне
-      "good":         "0xAAFFAA",   // good       / хорошо
-      "very_good":    "0x33FF33",   // very good  / очень хорошо
-      "unique":       "0x339933"    // unique     / уникально
+      "very_bad":     "0xFE0E00",   // very bad   / очень плохо
+      "bad":          "0xFE7903",   // bad        / плохо
+      "normal":       "0xF8F400",   // normal     / средне
+      "good":         "0x60FF00",   // good       / хорошо
+      "very_good":    "0x02C9B3",   // very good  / очень хорошо
+      "unique":       "0xD042F3"    // unique     / уникально
     },
     // Dynamic color by remaining health points.
     // Динамический цвет по оставшемуся запасу прочности.
@@ -223,14 +223,14 @@
       { "value": 92.4, "color": ${"def.colorRating.very_good"} }, // 76 - 92 - very good (better than 99% of players)
       { "value": 999,  "color": ${"def.colorRating.unique"   } }  // 93 - XX - unique    (better than 99.9% of players)
     ],
-    // Текущие граничные значения для рейтингов указаны на данной странице: https://modxvm.com/ru/ratings/xvm-scale/colors/
     // Current scales values ​​for ratings are listed on this page: https://modxvm.com/en/ratings/xvm-scale/colors/
+    // Текущие граничные значения для рейтингов указаны на данной странице: https://modxvm.com/ru/ratings/xvm-scale/colors/
     //
     // Custom dynamic colors by ratings.
     // If you want use your own color scales,
     // uncomment this block and replace "rating_name" to one of this values: "eff", "wn8", "wtr", "wgr"
     // Динамический цвет по указанному рейтингу.
-    // Если вы хотите использовать свои собственные границы цветов вместо стандартных, 
+    // Если вы хотите использовать свои собственные границы цветов вместо стандартных,
     // раскомментируйте блок и замените "rating_name" на одно из следующих значений: "eff", "wn8", "wtr", "wgr"
     // "rating_name": [
     //  { "value": 500,   "color": ${"def.colorRating.very_bad" } }, //    0 - 500   - very bad
