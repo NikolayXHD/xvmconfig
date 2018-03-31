@@ -15,12 +15,12 @@
     // Dynamic color by various statistical parameters.
     // Динамический цвет по различным статистическим показателям.
     "colorRating": {
-      "very_bad":     "0xFF8888",   // very bad   / очень плохо
-      "bad":          "0xFFCCCC",   // bad        / плохо
-      "normal":       "0xFFFFCC",   // normal     / средне
-      "good":         "0xAAFFAA",   // good       / хорошо
-      "very_good":    "0x33FF33",   // very good  / очень хорошо
-      "unique":       "0x339933"    // unique     / уникально
+      "very_bad":     "0xFE0E00",   // very bad   / очень плохо
+      "bad":          "0xFE7903",   // bad        / плохо
+      "normal":       "0xF8F400",   // normal     / средне
+      "good":         "0x60FF00",   // good       / хорошо
+      "very_good":    "0x02C9B3",   // very good  / очень хорошо
+      "unique":       "0xD042F3"    // unique     / уникально
     },
     // Dynamic color by remaining health points.
     // Динамический цвет по оставшемуся запасу прочности.
@@ -248,7 +248,7 @@
       { "value": 52.49, "color": ${"def.colorRating.normal"   } }, // 48.5 - 52.5  - normal    (better than 60% of players)
       { "value": 57.49, "color": ${"def.colorRating.good"     } }, // 52.5 - 57.5  - good      (better than 90% of players)
       { "value": 64.49, "color": ${"def.colorRating.very_good"} }, // 57.5 - 64.5  - very good (better than 99% of players)
-      { "value": 100,  "color": ${"def.colorRating.unique"   } }  // 64.5 - 100   - unique    (better than 99.9% of players)
+      { "value": 100,   "color": ${"def.colorRating.unique"   } }  // 64.5 - 100   - unique    (better than 99.9% of players)
     ],
     // Dynamic color by kilo-battles
     // Динамический цвет по количеству кило-боев
