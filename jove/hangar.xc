@@ -32,10 +32,10 @@
       // Угол поворота в градусах [0..360].
       "rotation": 0,
       // X offset
-      // Cмещение по оси X
+      // Смещение по оси X
       "offsetX": 0,
       // Y offset
-      // Cмещение по оси Y
+      // Смещение по оси Y
       "offsetY": 0
     },
     // true - enable crew auto return function
@@ -60,10 +60,10 @@
       // Угол поворота в градусах [0..360].
       "rotation": 0,
       // X offset
-      // Cмещение по оси X
+      // Смещение по оси X
       "offsetX": 0,
       // Y offset
-      // Cмещение по оси Y
+      // Смещение по оси Y
       "offsetY": 0
     },
     // Show/hide personal quests button or change its parameters
@@ -79,10 +79,10 @@
       // Угол поворота в градусах [0..360].
       "rotation": 0,
       // X offset
-      // Cмещение по оси X
+      // Смещение по оси X
       "offsetX": 0,
       // Y offset
-      // Cмещение по оси Y
+      // Смещение по оси Y
       "offsetY": 0
     },
     // Show/hide current vehicle name, type and level or change their parameters
@@ -98,10 +98,10 @@
       // Угол поворота в градусах [0..360].
       "rotation": 0,
       // X offset
-      // Cмещение по оси X
+      // Смещение по оси X
       "offsetX": 0,
       // Y offset
-      // Cмещение по оси Y
+      // Смещение по оси Y
       "offsetY": 0
     },
     // true - use credits instead of gold as default currency for ammo and equipment
@@ -115,7 +115,7 @@
     "blockVehicleIfLowAmmo": true,
     // Below this percentage, ammo is low. (0 - 100)
     // Ниже этого процента, снарядов считается мало. (0 - 100)
-    "lowAmmoPercentage": 90,
+    "lowAmmoPercentage": 20,
     // Behavior of the system channel notifications button on new notifications:
     //   none - do nothing
     //   blink - blink button
