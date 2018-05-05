@@ -4,8 +4,8 @@
  */
 {
   "statistics": {
-    "enabled": true,
-    "layer": "bottom",
+    "enabled": false,
+    "layer": "normal",
     "type": "extrafield",
     "formats": [
       { // background image, left part

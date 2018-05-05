@@ -1,7 +1,7 @@
 ﻿{
     // Position
     // Позиция
-	  "HeaderX": 270,
-      "HeaderY": 2,
-	  "BodyY": 22
+	  "HeaderX": "{{pp.mode=0?5|{{py:math.sum({{pp.widthLeft}},50)}}}}",
+      "HeaderY": "{{pp.mode=0?75|40}}",
+	  "BodyY": "{{pp.mode=0?95|60}}"
 }

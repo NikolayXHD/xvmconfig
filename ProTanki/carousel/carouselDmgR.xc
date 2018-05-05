@@ -4,5 +4,5 @@
  */
 {
       // Отметки на стволах.
-"enabled": true
+"enabled": false
 }

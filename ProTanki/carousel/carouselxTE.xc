@@ -4,5 +4,5 @@
  */
 {
       // Эффективность на танке.
-"enabled": true
+"enabled": false
 }
