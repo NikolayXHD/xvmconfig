@@ -2,7 +2,7 @@
     // online servers
     // онлайн серверов
     "onlineServers": {
-      // true - Enable display online of servers
+      // true - enable display online of servers
       // true - показывать онлайн серверов
       "enabled": false,
       // Axis field coordinates
@@ -67,18 +67,19 @@
         // Different colors depending on people online
         // Разные цвета в зависимости от количества игроков
         "color": {
-          "great": "0x60ff00",  // Отличный
-          "good":  "0xF8F400",  // Хороший
-          "poor":  "0xFE7903",  // Так себе
-          "bad":   "0xFE0E00"   // Плохой
+          "great": "0xFFCC66",  // Отличный
+          "good":  "0xE5E4E1",  // Хороший
+          "poor":  "0x96948F",  // Так себе
+          "bad":   "0xD64D4D"   // Плохой
         },
-        // Mark current server in the list, possible options: "none" (don't mark), "normal", "bold", "italic", "underline"
-        // Выделять текущий сервер в списке, доступные опции: "none" (не выделять), "normal", "bold", "italic", "underline"
-        "markCurrentServer": "bold",
         // Color for server name and delimiter (for example, "0x8080FF"). Empty string "" - use same color as online value
         // Цвет для названия сервера и разделителя (например, "0x8080FF"). Пустая строка "" - использовать цвет значения онлайна
         "serverColor": ""
-     },
+      },
+      // Text format for current server in the list, Flash HTML tags supported. "{server}" for the server value
+      // Форматирование текста для текущего сервер в списке. Поддерживаются теги Flash HTML. "{server}" заменяется
+      // на значение текущего сервера
+      "currentServerFormat": "<b>{server}</b>",
       // Threshold values defining server online and thus shorter battle queue
       // Пороговые значения, определяющие количество человек онлайн и следовательно меньшую очередь в бой
       "threshold": {
@@ -93,7 +94,7 @@
       "shadow": {
         "enabled": true,
         "distance": 0,
-        "angle": 0,        
+        "angle": 0,
         "color": "0x000000",
         "alpha": 70,
         "blur": 4,

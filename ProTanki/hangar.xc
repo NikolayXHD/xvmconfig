@@ -10,6 +10,12 @@
     // Show "Premium shop" button
     // Показать кнопку "Премиум магазин"
     "showPremiumShopButton": true,
+    // Show "Create squad" text on the squad creation button
+    // Показать текст "Создать взвод" на кнопке создания взвода
+    "showCreateSquadButtonText": true,
+    // Show selected battle mode text
+    // Показать текст с названием выбранного режима боя
+    "showBattleTypeSelectorText": true,
     // Show "General chat" button
     // Показать кнопку "Общий чат"
     "showGeneralChatButton": true,
@@ -32,17 +38,17 @@
       // Угол поворота в градусах [0..360].
       "rotation": 0,
       // X offset
-      // Cмещение по оси X
+      // Смещение по оси X
       "offsetX": 0,
       // Y offset
-      // Cмещение по оси Y
+      // Смещение по оси Y
       "offsetY": 0
     },
-    // true - Enable crew auto return function
-    // true - Включить функцию автовозврата экипажа
+    // true - enable crew auto return function
+    // true - включить функцию автовозврата экипажа
 	"enableCrewAutoReturn": ${"hangar/CrewAutoReturn.xc":"enableCrewAutoReturn"},
-    // true - Return crew check box is selected by default
-    // true - Включить галочку возврата экипажа по умолчанию
+    // true - return crew check box is selected by default
+    // true - включить галочку возврата экипажа по умолчанию
 	"crewReturnByDefault": ${"hangar/CrewAutoReturn.xc":"crewReturnByDefault"},
     // Number of perks to show without grouping
     // Количество перков, которые отображаются без группировки
@@ -104,11 +110,11 @@
       // Cмещение по оси Y
       "offsetY": 0
     },
-    // true - Enable removable equipment auto return (Camouflage net, Stereoscope, Toolbox)
-    // true - Включить автовозврат съемного оборудования (Маскировочная сеть, Стереотруба, Ящик с инструментами)
+    // true - enable removable equipment auto return (Camouflage net, Stereoscope, Toolbox)
+    // true - включить автовозврат съемного оборудования (Маскировочная сеть, Стереотруба, Ящик с инструментами)
 	"enableEquipAutoReturn": ${"hangar/EquipAutoReturn.xc":"enableEquipAutoReturn"},
-    // true - Make vehicle not ready for battle if low ammo
-    // true - Сделать машину не готовой к битве если мало снарядов
+    // true - make vehicle not ready for battle if low ammo
+    // true - сделать машину не готовой к битве если мало снарядов
     "blockVehicleIfLowAmmo": true,
     // Below this percentage, ammo is low. (0 - 100)
     // Ниже этого процента, снарядов считается мало. (0 - 100)
@@ -122,27 +128,38 @@
     //   blink - мигать кнопкой
     //   full - мигать и показать счетчик (поведение клиента по-умолчанию)
     "notificationsButtonType": "full",
-    // true - Hide price button in tech tree
-    // true - Прятать кнопку с ценой в дереве исследований
+    // true - hide price button in tech tree
+    // true - прятать кнопку с ценой в дереве исследований
     "hidePricesInTechTree": false,
-    // true - Show mastery mark in tech tree
-    // true - Показывать знак мастерства в дереве исследований
+    // true - show mastery mark in tech tree
+    // true - показывать знак мастерства в дереве исследований
     "masteryMarkInTechTree": true,
-    // true - Allow to consider the exchange of experience with gold in tech tree
-    // true - Разрешить учитывать обмен опыта за золото в дереве исследований
+    // true - allow to consider the exchange of experience with gold in tech tree
+    // true - разрешить учитывать обмен опыта за золото в дереве исследований
     "allowExchangeXPInTechTree": true,
-    // true - Show flags in barracks
-    // true - Показывать флаги в казарме
+    // true - show flags in barracks
+    // true - показывать флаги в казарме
     "barracksShowFlags": true,
-    // true - Show skills in barracks
-    // true - Показывать умения в казарме
+    // true - show skills in barracks
+    // true - показывать умения в казарме
     "barracksShowSkills": true,
+    // true - restore selected battle type on switching to another server (only random, frontline and rank battle modes)
+    // true - восстанавливать выбранный тип боя при переключении на другой сервер (только рандом, Линия Фронта и ранговые бои)
+    "restoreBattleType": false,
     // Ping servers
     // Пинг серверов
 	"pingServers": ${"hangar/pingServers.xc":"pingServers"},
-      // true - Enable display of ping to the servers
+      // true - enable display of ping to the servers
       // true - показывать пинг до серверов
 	"onlineServers": ${"hangar/onlineServers.xc":"onlineServers"},
+    // Show/hide notifications counters in the main menu
+    // Показывать/прятать счетчики уведомлений в главном меню
+    "notificationCounter": {
+      "store": true,                        // Store / Магазин
+      "missions": true,                     // Missions / Задачи
+      "profile": true,                      // Service Record / Достижения
+      "PersonalMissionOperationsPage": true // Campaigns / Кампании
+    },
     // Parameters for tank carousel
     // Параметры карусели танков
     "carousel": ${"carousel.xc":"carousel"},

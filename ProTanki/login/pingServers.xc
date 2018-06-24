@@ -2,7 +2,7 @@
     // Ping servers
     // Пинг серверов
     "pingServers": {
-      // true - Enable display of ping to the servers
+      // true - enable display of ping to the servers
       // true - показывать пинг до серверов
       "enabled": true,
       // Update interval, in ms
@@ -21,6 +21,10 @@
       // Transparency
       // Прозрачность от 0 до 100
       "alpha": 80,
+      // If set, draw image at background.
+      // Фоновое изображение, если задано.
+      // example: "bgImage": "cfg://My/img/my.png",
+      "bgImage": null,
       // Server to response time text delimiter
       // Разделитель сервера от времени отклика
       "delimiter": ": ",
@@ -48,6 +52,9 @@
       // text to show in case of error
       // текст показываемый в случае ошибки
       "errorString": "--",
+      // List of ignored servers, for example, ["RU1", "RU3"]
+      // Список игнорируемых серверов, например, ["RU1", "RU3"]
+      "ignoredServers": ["RU1", "RU2", "RU3", "RU4", "RU5", "RU6", "RU7", "RU8", "RU9","RU10"],
       // Text style
       // Стиль текста
       "fontStyle": {
@@ -84,15 +91,18 @@
         // Values above define bad response
         // Значения более считаются плохим откликом
       },
+      // Shadow options
       // Параметры тени
       "shadow": {
+        // false - no shadow
+        // false - без тени
         "enabled": true,
-        "color": "0x000000",
-        "distance": 0,
-        "angle": 0,
-        "alpha": 70,
-        "blur": 4,
-        "strength": 2
+        "distance": 0,             // (in pixels)     / offset distance / дистанция смещения
+        "angle": 0,                // (0.0 .. 360.0)  / offset angle    / угол смещения
+        "color": "0x000000",       // "0xXXXXXX"      / color           / цвет
+        "alpha": 70,               // (0 .. 100)      / opacity         / прозрачность
+        "blur": 4,                 // (0.0 .. 255.0)  / blur            / размытие
+        "strength": 2              // (0.0 .. 255.0)  / intensity       / интенсивность
       }
    }
 }

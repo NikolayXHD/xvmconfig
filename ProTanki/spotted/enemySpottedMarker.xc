@@ -10,7 +10,7 @@
     "x": 0,
     // y position.
     // положение по вертикали.
-    "y": 10,
+    "y": 6,
     // Horizontal alignment
     // Выравнивание по горизонтали
     "align": "center",
@@ -26,14 +26,14 @@
   },	
 	// Text for {{spotted}} macro.
     // Текст для макроса {{spotted}}
-		"spotted": {
-			"neverSeen": "<font face='$FieldFont' size='24' color='#DEDEDE'>*</font>",
-			"lost": "<font face='$FieldFont' size='24' color='#FF3C3C'>*</font>",
-			"spotted": "<font face='$FieldFont' size='24' color='#65FF3C'>*</font>",
-			"dead": "",
-			"neverSeen_arty": "<font face='$FieldFont' size='24' color='#DEDEDE'>*</font>",
-			"lost_arty": "<font face='$FieldFont' size='24' color='#FF3C3C'>*</font>",
-			"spotted_arty": "<font face='$FieldFont' size='24' color='#65FF3C'>*</font>",
-			"dead_arty": ""
-		}
+    "spotted": {
+      "neverSeen": "",
+      "lost": "<font face='xvm' size='24'>&#x70;</font>",
+      "spotted": "<font face='xvm' size='24'>&#x70;</font>",
+      "dead": "<font face='xvm' size='24' alpha='#80'>&#x76;</font>",
+      "neverSeen_arty": "",
+      "lost_arty": "<font face='xvm' size='24'>&#x70;</font>",
+      "spotted_arty": "<font face='xvm' size='24'>&#x70;</font>",
+      "dead_arty": "<font face='xvm' size='24' alpha='#80'>&#x76;</font>"
+    }
 }

@@ -2,7 +2,7 @@
     // Ping servers
     // Пинг серверов
     "pingServers": {
-      // true - Enable display of ping to the servers
+      // true - enable display of ping to the servers
       // true - показывать пинг до серверов
       "enabled": true,
       // Update interval, in ms
@@ -75,13 +75,14 @@
           "poor":  "0x96948F",  // Так себе
           "bad":   "0xD64D4D"   // Плохой
         },
-        // Mark current server in the list, possible options: "none" (don't mark), "normal", "bold", "italic", "underline"
-        // Выделять текущий сервер в списке, доступные опции: "none" (не выделять), "normal", "bold", "italic", "underline"
-        "markCurrentServer": "bold",
         // Color for server name and delimiter (for example, "0x8080FF"). Empty string "" - use same color as online value
         // Цвет для названия сервера и разделителя (например, "0x8080FF"). Пустая строка "" - использовать цвет значения онлайна
         "serverColor": ""
       },
+      // Text format for current server in the list, Flash HTML tags supported. "{server}" for the server value
+      // Форматирование текста для текущего сервер в списке. Поддерживаются теги Flash HTML. "{server}" заменяется
+      // на значение текущего сервера
+      "currentServerFormat": "<b>{server}</b>",
       // Threshold values defining response quality
       // Пороговые значения, определяющие качество отклика
       "threshold": {
