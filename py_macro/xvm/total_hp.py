@@ -1,5 +1,6 @@
 import xvm_battle.python.fragCorrelationPanel as panel
 from xfw import *
+from xfw_actionscript.python import *
 
 max_hp_enemy = 0
 max_hp_ally = 0
@@ -50,8 +51,8 @@ def update_hp(vehicleID, hp):
 
 
 # Addons: "avgDamage" and "mainGun"
-# night_dragon_on <http://www.koreanrandom.com/forum/user/14897-night-dragon-on/>
-# ktulho <http://www.koreanrandom.com/forum/user/17624-ktulho/>
+# night_dragon_on <https://kr.cm/f/p/14897/>
+# ktulho <https://kr.cm/f/p/17624/>
 
 import traceback
 import BigWorld

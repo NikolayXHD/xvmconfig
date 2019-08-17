@@ -12,13 +12,13 @@ def xvm_totalDamageColor():
 
 
 @xvm.export('xvm.totalDamage', deterministic=False)
-def xvm_totalDamage():
-    return te.totalDamage
+def xvm_totalDamage(norm=None):
+    return te.totalDamage if norm is None or (te.enemyVehiclesSumMaxHP == 0) else int(te.totalDamage * norm / te.enemyVehiclesSumMaxHP)
 
 
 @xvm.export('xvm.totalAssist', deterministic=False)
-def xvm_totalAssist():
-    return te.totalAssist
+def xvm_totalAssist(norm=None):
+    return te.totalAssist if norm is None or (te.enemyVehiclesSumMaxHP == 0) else int(te.totalAssist * norm / te.enemyVehiclesSumMaxHP)
 
 
 @xvm.export('xvm.totalStun', deterministic=False)
@@ -62,13 +62,14 @@ def xvm_totalBlockedReceived():
 
 
 @xvm.export('xvm.totalDamagesSquad', deterministic=False)
-def xvm_totalDamagesSquad():
-    return te.damagesSquad + te.totalDamage
+def xvm_totalDamagesSquad(norm=None):
+    dmg = te.damagesSquad + te.totalDamage
+    return dmg if norm is None or (te.enemyVehiclesSumMaxHP == 0) else int(dmg * norm / te.enemyVehiclesSumMaxHP)
 
 
 @xvm.export('xvm.damagesSquad', deterministic=False)
-def xvm_damagesSquad():
-    return te.damagesSquad
+def xvm_damagesSquad(norm=None):
+    return te.damagesSquad if norm is None or (te.enemyVehiclesSumMaxHP == 0) else int(te.damagesSquad * norm / te.enemyVehiclesSumMaxHP)
 
 
 @xvm.export('xvm.fragsSquad', deterministic=False)
@@ -78,17 +79,17 @@ def xvm_fragsSquad():
 
 @xvm.export('xvm.totalFragsSquad', deterministic=False)
 def xvm_totalFragsSquad():
-    return te.fragsSquad + te.ribbonTypes['kill'][1]
+    return te.fragsSquad + te.ribbonTypes['kill']
 
 
 @xvm.export('xvm.detection', deterministic=False)
 def xvm_detection():
-    return te.ribbonTypes['spotted'][1]
+    return te.ribbonTypes['spotted']
 
 
 @xvm.export('xvm.frags', deterministic=False)
 def xvm_frags():
-    return te.ribbonTypes['kill'][1]
+    return te.ribbonTypes['kill']
 
 
 @xvm.export('xvm.assistTrack', deterministic=False)
@@ -103,7 +104,7 @@ def xvm_assistSpot():
 
 @xvm.export('xvm.crits', deterministic=False)
 def xvm_crits():
-    return te.ribbonTypes['crits'][1]
+    return te.ribbonTypes['crits']
 
 
 @xvm.export('xvm.numberHitsBlocked', deterministic=False)
@@ -161,6 +162,31 @@ def xvm_numberStuns():
     return te.numberStuns
 
 
+@xvm.export('xvm.numberAssistSpot', deterministic=False)
+def xvm_numberAssistSpot():
+    return te.numberAssistSpot
+
+
+@xvm.export('xvm.numberAssistTrack', deterministic=False)
+def xvm_numberAssistTrack():
+    return te.numberAssistTrack
+
+
+@xvm.export('xvm.numberAssistStun', deterministic=False)
+def xvm_numberAssistStun():
+    return te.numberAssistStun
+
+
+@xvm.export('xvm.numberAssistAndStuns', deterministic=False)
+def xvm_numberAssistAndStuns():
+    return te.numberAssistTrack + te.numberAssistSpot + te.numberAssistStun
+
+
+@xvm.export('xvm.totalAssistAndStuns', deterministic=False)
+def xvm_totalAssistAndStuns():
+    return te.totalAssist + te.totalStun
+
+
 @xvm.export('xvm.numberDamagedVehicles', deterministic=False)
 def xvm_numberDamagedVehicles():
     return len(te.numberDamagedVehicles) if te.numberDamagedVehicles is not None else 0
@@ -169,3 +195,13 @@ def xvm_numberDamagedVehicles():
 @xvm.export('xvm.hitAlly', deterministic=False)
 def xvm_hitAlly():
     return 'hitAlly' if te.hitAlly else None
+
+
+@xvm.export('xvm.dmgAlly', deterministic=False)
+def xvm_dmgAlly():
+    return 'dmgAlly' if te.dmgAlly else None
+
+
+@xvm.export('xvm.dmgKindColor', deterministic=False)
+def xvm_dmgKindColor():
+    return '#' + config.get('colors/dmg_kind').get(te.damageKind, '')[2:]
