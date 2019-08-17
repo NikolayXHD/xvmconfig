@@ -88,10 +88,10 @@
     "formatRightNick": "{{name%.15s~..}}<font alpha='#A0'>{{clan}}</font>",
     // Display format for the left panel (macros allowed, see macros.txt).
     // Формат отображения для левой панели (допускаются макроподстановки, см. macros.txt).
-    "formatLeftVehicle": "{{vehicle}} <font size='{{xvm-stat?13|0}}'><font color='{{c:kb}}'>{{kb%2d~k}}</font> <font color='{{c:xr}}'>{{r}}</font> <font color='{{c:winrate}}'>{{winrate%2d~%}}</font></font>",
+    "formatLeftVehicle": "{{vehicle}}",
     // Display format for the right panel (macros allowed, see macros.txt).
     // Формат отображения для правой панели (допускаются макроподстановки, см. macros.txt).
-    "formatRightVehicle": "<font size='{{xvm-stat?13|0}}'><font color='{{c:winrate}}'>{{winrate%2d~%}}</font> <font color='{{c:xr}}'>{{r}}</font> <font color='{{c:kb}}'>{{kb%2d~k}}</font></font> {{vehicle}}",
+    "formatRightVehicle": "{{vehicle}}",
     // Extra fields. Fields are placed one above the other.
     // Дополнительные поля. Поля располагаются друг над другом.
     // Set of formats for left panel (extended format supported, see extra-field.txt).
